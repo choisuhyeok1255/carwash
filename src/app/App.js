@@ -1,25 +1,14 @@
-import './App.scss'
-import logo from 'assets/logo.svg'
-
+import { Header } from "containers";
+import HomePage from "pages/HomePage/HomePage";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "./App.scss";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <code>src/App.js</code> 문서를 수정하면 실시간 업데이트 됩니다
-        </p>
-        <a
-          className="App-link"
-          href="https://ko.reactjs.org"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          React를 배워보세요
-        </a>
-      </header>
-    </div>
-  )
+    <Router>
+      <Header />
+      <Route exact path="/" component={HomePage}></Route>
+    </Router>
+  );
 }
 
-export default App
+export default App;
