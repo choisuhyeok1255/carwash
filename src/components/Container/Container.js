@@ -3,15 +3,26 @@ import styled from "styled-components";
 
 const StyledContainer = styled.div`
   display: flex;
-  width: ${(props) => props.$width};
+  flex-flow: ${(props) => props.$flexFlow};
   justify-content: ${(props) => props.$justifyContent};
+  width: ${(props) => props.$width};
+  margin: ${(props) => props.$margin};
 `;
 
-const Container = ({ $width, $justifyContent, children, ...restProps }) => {
+const Container = ({
+  $flexFlow,
+  $justifyContent,
+  $width,
+  $margin,
+  children,
+  ...restProps
+}) => {
   return (
     <StyledContainer
-      $width={$width}
+      $flexFlow={$flexFlow}
       $justifyContent={$justifyContent}
+      $width={$width}
+      $margin={$margin}
       {...restProps}
     >
       {children}
