@@ -3,7 +3,7 @@ import React from "react";
 
 const YoutubeAndShop = () => {
   return (
-    <Container $width="420px" $margin="0 auto" $justifyContent="space-between">
+    <Container $justifyContent="space-between">
       <LinkToWebsite
         href={"https://www.youtube.com/channel/UCB3TwWFdgQnu0Q3iLc4ZXLA"}
       >

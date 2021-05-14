@@ -17,12 +17,7 @@ const SearchCarWash = () => {
   };
 
   return (
-    <Container
-      $flexFlow="column"
-      $width="420px"
-      $margin="0 auto"
-      $justifyContent="space-between"
-    >
+    <Container $flexFlow="column">
       <MainHeading>세차장 검색</MainHeading>
       <Form onSubmit={submitHandler}>
         <Input
