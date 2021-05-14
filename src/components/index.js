@@ -6,3 +6,4 @@ export { default as Input } from "./Input/Input";
 export { default as KaKaoMap } from "./KaKaoMap/KaKaoMap";
 export { default as Form } from "./Form/Form";
 export { default as SVGIcon } from "./SVGIcon/SVGIcon";
+export { default as Image } from "./Image/Image";
