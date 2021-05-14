@@ -92,4 +92,27 @@
       `npm run build` 또는`yarn build`를 사용하세요.
     -->
   </body>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyDFCOVnM9tYoKkgGXELMvJjUoeh4inZY3s",
+      authDomain: "donggukcarwash.firebaseapp.com",
+      projectId: "donggukcarwash",
+      storageBucket: "donggukcarwash.appspot.com",
+      messagingSenderId: "61543163934",
+      appId: "1:61543163934:web:63ace89ceb78460f91260f",
+      measurementId: "G-3YRJ3BZY1G",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
 </html>
