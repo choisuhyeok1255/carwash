@@ -5,6 +5,8 @@ const StyledContainer = styled.div`
   display: flex;
   flex-flow: ${(props) => props.$flexFlow};
   justify-content: ${(props) => props.$justifyContent};
+  align-items: ${(props) => props.$alignItems};
+  flex-wrap: ${(props) => props.$flexWrap};
   width: ${(props) => props.$width};
   margin: ${(props) => props.$margin};
 `;
@@ -12,6 +14,8 @@ const StyledContainer = styled.div`
 const Container = ({
   $flexFlow,
   $justifyContent,
+  $alignItems,
+  $flexWrap,
   $width,
   $margin,
   children,
@@ -21,6 +25,8 @@ const Container = ({
     <StyledContainer
       $flexFlow={$flexFlow}
       $justifyContent={$justifyContent}
+      $alignItems={$alignItems}
+      $flexWrap={$flexWrap}
       $width={$width}
       $margin={$margin}
       {...restProps}

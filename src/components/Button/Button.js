@@ -5,6 +5,8 @@ const StyledButton = styled.button`
   width: ${(props) => props.$width};
   height: ${(props) => props.$height};
   border: none;
+  background-color: inherit;
+  padding: 0;
 `;
 
 const Button = ({ $width, $height, children, ...restProps }) => {
