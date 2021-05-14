@@ -1,5 +1,8 @@
-import { Container } from "components";
-import { YoutubeAndShop } from "containers";
+import {
+  CarWashCertification,
+  CarWashGoodsReview,
+  YoutubeAndShop,
+} from "containers";
 import SearchCarWash from "containers/SearchCarWash/SearchCarWash";
 import React from "react";
 
@@ -8,6 +11,8 @@ const HomePage = () => {
     <>
       <YoutubeAndShop />
       <SearchCarWash />
+      <CarWashCertification />
+      <CarWashGoodsReview />
     </>
   );
 };
