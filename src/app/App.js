@@ -1,5 +1,10 @@
 import { Header } from "containers";
-import HomePage from "pages/HomePage/HomePage";
+import {
+  CarWashCertificationEdit,
+  CarWashCertificationPage,
+  CarWashGoodsReviewEdit,
+  HomePage,
+} from "pages";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import styled from "styled-components";
 import "./App.scss";
@@ -16,6 +21,21 @@ function App() {
       <StyledMain>
         <Header />
         <Route exact path="/" component={HomePage}></Route>
+        <Route
+          exact
+          path="/CarWashCertificationEdit"
+          component={CarWashCertificationEdit}
+        ></Route>
+        <Route
+          exact
+          path="/CarWashCertificationPage"
+          component={CarWashCertificationPage}
+        ></Route>
+        <Route
+          exact
+          path="/CarWashGoodsReviewEdit"
+          component={CarWashGoodsReviewEdit}
+        ></Route>
       </StyledMain>
     </Router>
   );
