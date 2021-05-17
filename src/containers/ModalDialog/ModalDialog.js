@@ -7,7 +7,7 @@ const ModalDialog = ({ setIsModalOpen, children }) => {
   };
 
   return (
-    <Modal onClick={handlerModalClose}>
+    <Modal>
       <Dialog handlerModalClose={handlerModalClose}>{children}</Dialog>
     </Modal>
   );
