@@ -8,7 +8,13 @@ const CarWashGoodsReview = () => {
 
   return (
     <>
-      <MainHeading to="/CarWashGoodsReviewEdit">사용 후기</MainHeading>
+      <MainHeading
+        to="/CarWashGoodsReviewEdit"
+        $fontSize="2rem"
+        $margin="55px 0 20px 0"
+      >
+        사용 후기
+      </MainHeading>
       <Container $flexWrap="wrap" $justifyContent="space-between">
         {images.map((image, index) => {
           return (

@@ -7,7 +7,13 @@ const CarWashCertification = () => {
   const images = [siba, siba, siba, siba];
   return (
     <>
-      <MainHeading to="/CarWashCertificationPage">세차 인증</MainHeading>
+      <MainHeading
+        to="/CarWashCertificationPage"
+        $fontSize="2rem"
+        $margin="55px 0 20px 0"
+      >
+        세차 인증
+      </MainHeading>
       <Container $flexWrap="wrap" $justifyContent="space-between">
         {images.map((image, index) => {
           return (
