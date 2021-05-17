@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledLinkToWebsite = styled.a``;
+const StyledLinkToWebsite = styled.a`
+  font-size: ${(props) => props.$fontSize};
+`;
 
-const LinkToWebsite = ({ href, children, ...restProps }) => {
+const LinkToWebsite = ({ href, $fontSize, children, ...restProps }) => {
   return (
-    <StyledLinkToWebsite href={href} {...restProps}>
+    <StyledLinkToWebsite href={href} $fontSize={$fontSize} {...restProps}>
       {children}
     </StyledLinkToWebsite>
   );
