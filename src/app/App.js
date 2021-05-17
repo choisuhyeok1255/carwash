@@ -20,22 +20,22 @@ function App() {
     <Router>
       <StyledMain>
         <Header />
-        <Route exact path="/" component={HomePage}></Route>
+        <Route exact path="/" component={HomePage} />
         <Route
           exact
           path="/CarWashCertificationEdit"
           component={CarWashCertificationEdit}
-        ></Route>
+        />
         <Route
           exact
           path="/CarWashCertificationPage"
           component={CarWashCertificationPage}
-        ></Route>
+        />
         <Route
           exact
           path="/CarWashGoodsReviewEdit"
           component={CarWashGoodsReviewEdit}
-        ></Route>
+        />
       </StyledMain>
     </Router>
   );
