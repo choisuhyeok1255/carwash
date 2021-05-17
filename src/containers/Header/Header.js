@@ -18,7 +18,7 @@ const Header = () => {
         $justifyContent="space-between"
       >
         <Button $backgroundColor="inherit">출석</Button>
-        <Heading>
+        <Heading $fontSize="3rem" $margin="15px 0 0 0">
           <LinkHeader to="/">빛나는 하루</LinkHeader>
         </Heading>
         <Button $backgroundColor="inherit" onClick={handlerModalOpen}>
@@ -27,9 +27,7 @@ const Header = () => {
         {isModalOpen ? (
           <>
             <Portal>
-              <LoginModalDialog
-                setIsModalOpen={setIsModalOpen}
-              ></LoginModalDialog>
+              <LoginModalDialog setIsModalOpen={setIsModalOpen} />
             </Portal>
           </>
         ) : null}

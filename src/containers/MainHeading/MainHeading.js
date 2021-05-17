@@ -7,10 +7,14 @@ import {
 } from "components";
 import React from "react";
 
-const MainHeading = ({ to, children }) => {
+const MainHeading = ({ to, $fontSize, $margin, children }) => {
   return (
-    <Container $justifyContent="space-between" $alignItems="center">
-      <Heading as="h2">
+    <Container
+      $justifyContent="space-between"
+      $alignItems="center"
+      $margin={$margin}
+    >
+      <Heading as="h2" $fontSize={$fontSize}>
         <LinkHeader to={to}>{children}</LinkHeader>
       </Heading>
       <LinkButton
