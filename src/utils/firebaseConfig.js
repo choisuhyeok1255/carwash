@@ -1,7 +1,8 @@
+// Firebase 앱 모듈 불러오기
 import firebase from "firebase/app";
-import "firebase/analytics";
-import "firebase/auth";
+// 데이터베이스, 인증 모듈 불러오기
 import "firebase/firestore";
+import "firebase/auth";
 
 const firebaseConfig = {
   apiKey: `${process.env.REACT_APP_FIREBASE_APP_KEY}`,
@@ -12,8 +13,13 @@ const firebaseConfig = {
   appId: `${process.env.REACT_APP_FIREBASE_APPID_KEY}`,
   measurementId: `${process.env.REACT_APP_FIREBASE_MEASUREMENTID_KEY}`,
 };
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
 
-export default firebaseConfig;
+// Firebase 앱 초기화
+firebase.initializeApp(firebaseConfig);
+
+// Firebase 인증, 데이터베이스 객체 생성 (내보내기)
+export const auth = firebase.auth();
+export const db = firebase.firestore();
+
+// Firebase 모듈 기본 내보내기
+export default firebase;
