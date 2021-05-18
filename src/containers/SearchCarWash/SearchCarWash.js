@@ -18,7 +18,9 @@ const SearchCarWash = () => {
 
   return (
     <Container $flexFlow="column" $margin="40px 0 0 0">
-      <MainHeading $fontSize="2rem">세차장 검색</MainHeading>
+      <MainHeading $fontSize="2rem" to="/">
+        세차장 검색
+      </MainHeading>
       <Form onSubmit={submitHandler}>
         <Input
           placeholder="세차장을 검색하세요..."
