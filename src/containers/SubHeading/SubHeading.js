@@ -1,10 +1,14 @@
 import { Container, Heading, LinkButton, SVGIcon } from "components";
 import React from "react";
 
-const SubHeading = ({ to, $fontWeight, children }) => {
+const SubHeading = ({ to, $fontWeight, $margin, children }) => {
   return (
-    <Container $justifyContent="space-between" $alignItems="center">
-      <Heading as="h2" $fontWeight={$fontWeight}>
+    <Container
+      $margin={$margin}
+      $justifyContent="space-between"
+      $alignItems="center"
+    >
+      <Heading as="h2" $fontSize="2rem" $fontWeight={$fontWeight}>
         {children}
       </Heading>
       <LinkButton
