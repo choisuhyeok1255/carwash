@@ -46,13 +46,6 @@ const CarWashCertificationEdit = ({ history }) => {
         image: url,
         postid: getPostId(),
       });
-      // db.collection("certificationImage").add({
-      //   name: state.currentUser.name,
-      //   email: state.currentUser.email,
-      //   uid: state.currentUser.uid,
-      //   uploadDate: getToday(),
-      //   image: url,
-      // });
     };
   };
 

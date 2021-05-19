@@ -2,8 +2,8 @@ import {
   CarWashCertification,
   CarWashGoodsReview,
   YoutubeAndShop,
+  SearchCarWash,
 } from "containers";
-import SearchCarWash from "containers/SearchCarWash/SearchCarWash";
 import React from "react";
 
 const HomePage = () => {
