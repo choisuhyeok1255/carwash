@@ -7,7 +7,7 @@ import {
 } from "components";
 import React from "react";
 
-const MainHeading = ({ to, $fontSize, $margin, children }) => {
+const MainHeading = ({ toPage, toEdit, $fontSize, $margin, children }) => {
   return (
     <Container
       $justifyContent="space-between"
@@ -15,10 +15,10 @@ const MainHeading = ({ to, $fontSize, $margin, children }) => {
       $margin={$margin}
     >
       <Heading as="h2" $fontSize={$fontSize}>
-        <LinkHeader to={to}>{children}</LinkHeader>
+        <LinkHeader to={toPage}>{children}</LinkHeader>
       </Heading>
       <LinkButton
-        to={to}
+        to={toEdit}
         $width="20px"
         $height="20px"
         $backgroundColor="inherit"

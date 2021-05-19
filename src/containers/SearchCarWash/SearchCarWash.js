@@ -18,7 +18,7 @@ const SearchCarWash = () => {
 
   return (
     <Container $flexFlow="column" $margin="40px 0 0 0">
-      <MainHeading $fontSize="2rem" to="/">
+      <MainHeading $fontSize="2rem" toPage="/" toEdit="/">
         세차장 검색
       </MainHeading>
       <Form onSubmit={submitHandler}>
