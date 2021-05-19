@@ -14,3 +14,5 @@ export { default as LinkHeader } from "./LinkHeader/LinkHeader";
 export { default as Modal } from "./Modal/Modal";
 export { default as Dialog } from "./Dialog/Dialog";
 export { default as Portal } from "./Portal/Portal";
+export { default as Span } from "./Span/Span";
+export { default as Paragraph } from "./Paragraph/Paragraph";
