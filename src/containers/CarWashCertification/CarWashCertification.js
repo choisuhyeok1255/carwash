@@ -1,29 +1,48 @@
 import { Container, Image } from "components";
 import { MainHeading } from "containers";
-import React from "react";
-import siba from "assets/siba.jpg";
+import React, { useEffect, useState } from "react";
+import { db } from "utils/firebaseConfig";
 
 const CarWashCertification = () => {
-  const images = [siba, siba, siba, siba];
+  const [Images, setImages] = useState([]);
+
+  useEffect(() => {
+    db.collection("certificationImage")
+      .get()
+      .then((querySnapshot) => {
+        let temp = [];
+        querySnapshot.forEach((doc) => {
+          console.log(doc.data());
+          temp.push({
+            image: doc.data().image,
+          });
+        });
+        setImages(temp);
+      });
+  }, []);
+
   return (
     <>
       <MainHeading
-        to="/CarWashCertificationPage"
+        toPage="/CarWashCertificationPage"
+        toEdit="/CarWashCertificationEdit"
         $fontSize="2rem"
         $margin="55px 0 20px 0"
       >
         세차 인증
       </MainHeading>
       <Container $flexWrap="wrap" $justifyContent="space-between">
-        {images.map((image, index) => {
+        {Images.map((image, index) => {
           return (
-            <Image
-              src={siba}
-              alt="시바견"
-              key={index}
-              $width="170px"
-              $margin="0 0 15px 0"
-            ></Image>
+            <Container $justifyContent="space-between">
+              <Image
+                src={image.image}
+                alt="사진"
+                key={index}
+                $width="170px"
+                $margin="0 0 15px 0"
+              />
+            </Container>
           );
         })}
       </Container>
