@@ -1,6 +1,10 @@
 import { Container, Form, Input, KaKaoMap } from "components";
-import { MainHeading } from "containers";
 import React, { useState } from "react";
+import styled from "styled-components";
+
+const SearchHeading = styled.h2`
+  font-size: 2rem;
+`;
 
 const SearchCarWash = () => {
   const [inputText, setInputText] = useState("");
@@ -18,9 +22,7 @@ const SearchCarWash = () => {
 
   return (
     <Container $flexFlow="column" $margin="40px 0 0 0">
-      <MainHeading $fontSize="2rem" toPage="/" toEdit="/">
-        세차장 검색
-      </MainHeading>
+      <SearchHeading>세차장 검색</SearchHeading>
       <Form onSubmit={submitHandler}>
         <Input
           placeholder="세차장을 검색하세요..."
