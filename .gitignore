@@ -169,4 +169,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# firebase hosting file
+build
+.firebase
+.firebaserc
+firebase.json
 # End of https://www.gitignore.io/api/osx,node,windows,visualstudiocode
