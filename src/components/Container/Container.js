@@ -9,6 +9,9 @@ const StyledContainer = styled.div`
   flex-wrap: ${(props) => props.$flexWrap};
   width: ${(props) => props.$width};
   margin: ${(props) => props.$margin};
+  border-radius: ${(props) => props.$borderRadius};
+  border: ${(props) => props.$border};
+  padding: ${(props) => props.$padding};
 `;
 
 const Container = ({
@@ -18,6 +21,9 @@ const Container = ({
   $flexWrap,
   $width,
   $margin,
+  $border,
+  $borderRadius,
+  $padding,
   children,
   ...restProps
 }) => {
@@ -29,6 +35,9 @@ const Container = ({
       $flexWrap={$flexWrap}
       $width={$width}
       $margin={$margin}
+      $border={$border}
+      $borderRadius={$borderRadius}
+      $padding={$padding}
       {...restProps}
     >
       {children}
