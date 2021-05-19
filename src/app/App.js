@@ -3,6 +3,7 @@ import {
   CarWashCertificationEdit,
   CarWashCertificationPage,
   CarWashGoodsReviewEdit,
+  CarWashGoodsReviewPage,
   HomePage,
 } from "pages";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -35,6 +36,11 @@ function App() {
           exact
           path="/CarWashGoodsReviewEdit"
           component={CarWashGoodsReviewEdit}
+        />
+        <Route
+          exact
+          path="/CarWashGoodsReviewPage"
+          component={CarWashGoodsReviewPage}
         />
       </StyledMain>
     </Router>
