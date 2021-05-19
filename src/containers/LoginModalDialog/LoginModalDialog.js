@@ -1,7 +1,7 @@
 import { Button, Container, Heading, SVGIcon } from "components";
 import { ModalDialog } from "containers";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { signInSuccessAction } from "store/modules/auth/authActionCreator";
 import styled from "styled-components";
 import { db } from "utils/firebaseConfig";
@@ -23,7 +23,6 @@ const LoginSpan = styled.span`
 
 const LoginModalDialog = ({ setIsModalOpen, loginUser, setLoginUser }) => {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.auth);
 
   const handlerGoogleLogin = async () => {
     const login = await googleSignIn();
