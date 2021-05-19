@@ -1,36 +1,90 @@
 import { Button, Container, InputImage } from "components";
-import React from "react";
+import { Head } from "containers";
 import { color } from "styles/color";
-import firebase from "firebase/app";
-import "firebase/storage";
+import React, { useState } from "react";
+import { db, storage } from "utils/firebaseConfig";
+import { useSelector } from "react-redux";
+import getToday from "utils/getToday";
+import getPostId from "utils/getPostId";
 
-const CarWashCertificationEdit = () => {
-  const storageRef = firebase.storage().ref();
+const CarWashCertificationEdit = ({ history }) => {
+  const [image, setImage] = useState(null);
+  const [imageURL, setImageURL] = useState(null);
+  const state = useSelector((state) => state.auth);
 
-  console.log(storageRef);
+  const handlerCarWashImageUpload = () => {
+    const uploadUserEmail = state.currentUser.email;
 
-  const handlerCarWashImageUpload = (e) => {};
+    const uploadImage = storage
+      .ref(`images/${uploadUserEmail}/${image.name}`)
+      .put(image);
+
+    uploadImage.on(
+      "state_change",
+      (snapshot) => {},
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(`${uploadUserEmail}/${image.name}`)
+          .getDownloadURL()
+          .then((url) => {
+            uploadCertificationImage(url);
+            history.push("/CarWashCertificationPage");
+          });
+      }
+    );
+
+    const uploadCertificationImage = (url) => {
+      db.collection("certificationImage").add({
+        name: state.currentUser.name,
+        email: state.currentUser.email,
+        uid: state.currentUser.uid,
+        uploadDate: getToday(),
+        image: url,
+        postid: getPostId(),
+      });
+      // db.collection("certificationImage").add({
+      //   name: state.currentUser.name,
+      //   email: state.currentUser.email,
+      //   uid: state.currentUser.uid,
+      //   uploadDate: getToday(),
+      //   image: url,
+      // });
+    };
+  };
 
   return (
-    <Container $flexFlow="column" $alignItems="center">
-      <InputImage
-        type="file"
-        $width="100%"
-        $height="100%"
-        $borderRadius="10px"
-        $opacity="0"
-      ></InputImage>
-      <Button
-        $width="120px"
-        $height="30px"
-        $backgroundColor={color.themeMain}
-        $borderRadius="5px"
-        $margin="20px 0 0 0"
-        onClick={handlerCarWashImageUpload}
-      >
-        완료
-      </Button>
-    </Container>
+    <>
+      <Head as="h2" $margin="22px 0 10px 30px" $fontWeight="400">
+        세차 인증 사진
+      </Head>
+      <Container $flexFlow="column" $alignItems="center">
+        <InputImage
+          type="file"
+          $width="100%"
+          $height="100%"
+          $borderRadius="10px"
+          $opacity="0"
+          image={image}
+          setImage={setImage}
+          imageURL={imageURL}
+          setImageURL={setImageURL}
+        />
+        <Button
+          $width="120px"
+          $height="30px"
+          $backgroundColor={color.themeMain}
+          $borderRadius="5px"
+          $margin="20px 0 0 0"
+          onClick={handlerCarWashImageUpload}
+        >
+          전송
+        </Button>
+      </Container>
+    </>
   );
 };
 
