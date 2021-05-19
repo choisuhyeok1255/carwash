@@ -1,5 +1,5 @@
 import { Image, Input, SVGIcon } from "components";
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const InputWrapper = styled.div`
@@ -23,21 +23,16 @@ const InputBackground = styled.div`
   align-items: center;
 `;
 
-const InputImage = () => {
-  const [previewImage, setPreviewImage] = useState(null);
-  const [previewImageURL, setPreviewImageURL] = useState(null);
-
+const InputImage = ({ image, setImage, imageURL, setImageURL }) => {
   const handlerImagePreview = (e) => {
     e.preventDefault();
 
     const reader = new FileReader();
     const imagePreview = e.target.files[0];
 
-    console.log(imagePreview);
-
     reader.onload = () => {
-      setPreviewImage(imagePreview);
-      setPreviewImageURL(reader.result);
+      setImage(imagePreview);
+      setImageURL(reader.result);
     };
 
     if (imagePreview) {
@@ -47,9 +42,9 @@ const InputImage = () => {
 
   return (
     <InputWrapper>
-      {previewImage && (
+      {image && (
         <Image
-          src={previewImageURL}
+          src={imageURL}
           accept="image/jpeg, image/png, image/jpg, image/webp, image/gif"
           $width="100%"
           $height="100%"
