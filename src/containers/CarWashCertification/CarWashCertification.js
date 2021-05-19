@@ -12,7 +12,6 @@ const CarWashCertification = () => {
       .then((querySnapshot) => {
         let temp = [];
         querySnapshot.forEach((doc) => {
-          console.log(doc.data());
           temp.push({
             image: doc.data().image,
           });
