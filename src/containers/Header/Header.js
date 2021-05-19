@@ -2,13 +2,11 @@ import { Button, Heading, LinkHeader, Portal } from "components";
 import Container from "components/Container/Container";
 import { LoginModalDialog } from "containers";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import { googleSignOut } from "utils/googleSignInOut";
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loginUser, setLoginUser] = useState(null);
-  const state = useSelector((state) => state.auth);
 
   const handlerModalOpen = () => {
     setIsModalOpen(true);
@@ -16,7 +14,7 @@ const Header = () => {
 
   const handlerGoogleLogOut = () => {
     googleSignOut();
-    console.log(loginUser);
+    setLoginUser(null);
   };
 
   return (
@@ -30,7 +28,7 @@ const Header = () => {
         <Heading $fontSize="3rem">
           <LinkHeader to="/">빛나는 하루</LinkHeader>
         </Heading>
-        {state.currentUser ? (
+        {loginUser ? (
           <Button $backgroundColor="inherit" onClick={handlerGoogleLogOut}>
             로그아웃
           </Button>
