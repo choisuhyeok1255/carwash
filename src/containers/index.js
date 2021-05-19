@@ -6,3 +6,4 @@ export { default as CarWashGoodsReview } from "./CarWashGoodsReview/CarWashGoods
 export { default as SubHeading } from "./SubHeading/SubHeading";
 export { default as ModalDialog } from "./ModalDialog/ModalDialog";
 export { default as LoginModalDialog } from "./LoginModalDialog/LoginModalDialog";
+export { default as Head } from "./Head/Head";
