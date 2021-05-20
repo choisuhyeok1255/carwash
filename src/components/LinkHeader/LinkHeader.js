@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: black;
+  color: ${(props) => props.$color};
 `;
 
-const LinkHeader = ({ to, children, ...restProps }) => {
+const LinkHeader = ({ to, $color, children, ...restProps }) => {
   return (
-    <StyledLink to={to} {...restProps}>
+    <StyledLink to={to} $color={$color} {...restProps}>
       {children}
     </StyledLink>
   );

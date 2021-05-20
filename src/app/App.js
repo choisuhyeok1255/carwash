@@ -1,3 +1,4 @@
+import { Container } from "components";
 import { Header } from "containers";
 import {
   CarWashCertificationEdit,
@@ -19,30 +20,32 @@ const StyledMain = styled.main`
 function App() {
   return (
     <Router>
-      <StyledMain>
+      <Container $flexFlow="column" $alignItems="center">
         <Header />
-        <Route exact path="/" component={HomePage} />
-        <Route
-          exact
-          path="/CarWashCertificationEdit"
-          component={CarWashCertificationEdit}
-        />
-        <Route
-          exact
-          path="/CarWashCertificationPage"
-          component={CarWashCertificationPage}
-        />
-        <Route
-          exact
-          path="/CarWashGoodsReviewEdit"
-          component={CarWashGoodsReviewEdit}
-        />
-        <Route
-          exact
-          path="/CarWashGoodsReviewPage"
-          component={CarWashGoodsReviewPage}
-        />
-      </StyledMain>
+        <StyledMain>
+          <Route exact path="/" component={HomePage} />
+          <Route
+            exact
+            path="/CarWashCertificationEdit"
+            component={CarWashCertificationEdit}
+          />
+          <Route
+            exact
+            path="/CarWashCertificationPage"
+            component={CarWashCertificationPage}
+          />
+          <Route
+            exact
+            path="/CarWashGoodsReviewEdit"
+            component={CarWashGoodsReviewEdit}
+          />
+          <Route
+            exact
+            path="/CarWashGoodsReviewPage"
+            component={CarWashGoodsReviewPage}
+          />
+        </StyledMain>
+      </Container>
     </Router>
   );
 }
