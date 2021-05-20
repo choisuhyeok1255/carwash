@@ -31,7 +31,7 @@ const CarWashCertificationPage = () => {
         return (
           <Container $flexFlow="column" $margin="20px 0 15px 0">
             <Span $fontSize="1.5rem" $margin="0 0 10px 30px">
-              ID: {image.name}
+              {image.name}
             </Span>
             <Span $margin="0 0 10px 30px">{image.uploadDate}</Span>
             <Image src={image.image} alt="사진" $width="100%" />
