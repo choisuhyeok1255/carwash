@@ -6,6 +6,7 @@ const StyledHeading = styled.h1`
   color: ${(props) => props.$color};
   font-size: ${(props) => props.$fontSize};
   margin: ${(props) => props.$margin};
+  line-height: ${(props) => props.$lineHeight};
 `;
 
 const Heading = ({
@@ -13,6 +14,8 @@ const Heading = ({
   $color,
   $fontSize,
   $margin,
+  $textAlign,
+  $lineHeight,
   children,
   ...restProps
 }) => {
@@ -22,6 +25,7 @@ const Heading = ({
       $color={$color}
       $fontSize={$fontSize}
       $margin={$margin}
+      $lineHeight={$lineHeight}
       {...restProps}
     >
       {children}

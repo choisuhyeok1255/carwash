@@ -7,6 +7,7 @@ const StyledButton = styled.button`
   margin: ${(props) => props.$margin};
   padding: ${(props) => props.$padding};
   background-color: ${(props) => props.$backgroundColor};
+  color: ${(props) => props.$color};
   border-radius: ${(props) => props.$borderRadius};
   position: ${(props) => props.$position};
   top: ${(props) => props.$top};
@@ -24,6 +25,7 @@ const Button = ({
   $margin,
   $padding,
   $backgroundColor,
+  $color,
   $borderRadius,
   $position,
   $top,
@@ -42,6 +44,7 @@ const Button = ({
       $margin={$margin}
       $padding={$padding}
       $backgroundColor={$backgroundColor}
+      $color={$color}
       $borderRadius={$borderRadius}
       $position={$position}
       $top={$top}
