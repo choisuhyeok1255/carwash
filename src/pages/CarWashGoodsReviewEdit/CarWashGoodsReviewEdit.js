@@ -16,7 +16,6 @@ const CarWashGoodsReviewEdit = ({ history }) => {
 
   const handlerGoodsImageUpload = () => {
     const uploadUserEmail = state.currentUser.email;
-    console.log(image);
 
     const uploadImage = storage
       .ref(`images/${uploadUserEmail}/${image.name}`)
