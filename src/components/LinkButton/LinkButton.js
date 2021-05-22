@@ -8,6 +8,8 @@ const StyledLink = styled(Link)`
   margin: ${(props) => props.$margin};
   background-color: ${(props) => props.$backgroundColor};
   border-radius: ${(props) => props.$borderRadius};
+  color: ${(props) => props.$color};
+  font-size: ${(props) => props.$fontSize};
 `;
 
 const LinkButton = ({
@@ -16,6 +18,7 @@ const LinkButton = ({
   $margin,
   $backgroundColor,
   $borderRadius,
+  $color,
   children,
   ...restProps
 }) => {
@@ -25,6 +28,7 @@ const LinkButton = ({
       $height={$height}
       $margin={$margin}
       $backgroundColor={$backgroundColor}
+      $color={$color}
       $borderRadius={$borderRadius}
       {...restProps}
     >
