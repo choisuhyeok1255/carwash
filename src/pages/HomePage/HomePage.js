@@ -1,3 +1,4 @@
+import { DivisionLine } from "components";
 import {
   CarWashCertification,
   CarWashGoodsReview,
@@ -11,7 +12,9 @@ const HomePage = () => {
     <>
       <YoutubeAndShop />
       <SearchCarWash />
+      <DivisionLine $margin="30px 0" />
       <CarWashCertification />
+      <DivisionLine $margin="30px 0" />
       <CarWashGoodsReview />
     </>
   );
