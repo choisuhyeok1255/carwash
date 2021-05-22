@@ -3,3 +3,7 @@ export { default as CarWashCertificationEdit } from "./CarWashCertificationEdit/
 export { default as CarWashGoodsReviewEdit } from "./CarWashGoodsReviewEdit/CarWashGoodsReviewEdit";
 export { default as CarWashCertificationPage } from "./CarWashCertificationPage/CarWashCertificationPage";
 export { default as CarWashGoodsReviewPage } from "./CarWashGoodsReviewPage/CarWashGoodsReviewPage";
+export { default as CarWashGoodsReviewModifyPage } from "./CarWashGoodsReviewModifyPage/CarWashGoodsReviewModifyPage";
+export { default as CarWashProfile } from "./CarWashProfile/CarWashProfile";
+export { default as CarWashUserCertificationPage } from "./CarWashUserCertificationPage/CarWashUserCertificationPage";
+export { default as CarWashUserGoodsReviewPage } from "./CarWashUserGoodsReviewPage/CarWashUserGoodsReviewPage";
