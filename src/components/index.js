@@ -16,3 +16,5 @@ export { default as Dialog } from "./Dialog/Dialog";
 export { default as Portal } from "./Portal/Portal";
 export { default as Span } from "./Span/Span";
 export { default as Paragraph } from "./Paragraph/Paragraph";
+export { default as DivisionLine } from "./DivisionLine/DivisionLine";
+export { default as UlContainer } from "./UlContainer/UlContainer";
