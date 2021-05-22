@@ -1,6 +1,6 @@
 import {
-  Button,
   Container,
+  DivisionLine,
   Heading,
   Image,
   LinkButton,
@@ -8,108 +8,69 @@ import {
   Span,
   SVGIcon,
 } from "components";
-import { SubHeading } from "containers";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import deletePost from "utils/post/deletePost";
-import { db } from "utils/firebaseConfig";
+import { color } from "styles/color";
+import getGoodsReviewListItem from "utils/getItems/getGoodsReviewListItem";
 
-const CarWashGoodsReviewPage = () => {
+const CarWashGoodsReviewPage = ({ location }) => {
   const [goodsReview, setGoodsReview] = useState([]);
   const loginUser = useSelector((state) => state.auth.currentUser);
 
   useEffect(() => {
-    db.collection("goodsReview")
-      .get()
-      .then((querySnapshot) => {
-        let temp = [];
-        querySnapshot.forEach((doc) => {
-          temp.push({
-            image: doc.data().image,
-            name: doc.data().name,
-            uploadDate: doc.data().uploadDate,
-            subject: doc.data().subject,
-            mainText: doc.data().mainText,
-            postid: doc.data().postid,
-            email: doc.data().email,
-          });
-        });
-        setGoodsReview(temp);
-      });
-  }, []);
+    getGoodsReviewListItem(location.state.postid, setGoodsReview);
+  }, [location.state.postid]);
+
   return (
     <>
-      <SubHeading to="CarWashGoodsReviewEdit" $margin="22px 0 32px 0">
-        사용 후기
-      </SubHeading>
-      <Container $flexFlow="column">
-        {goodsReview.map((review, index) => {
-          return (
-            <Container
-              $flexFlow="column"
-              $padding="10px 20px"
-              $width="354px"
-              $border="1px solid black"
-              $borderRadius="10px"
-              $margin="0 0 20px 0"
-            >
-              <Container $margin="0 0 10px 0" $justifyContent="space-between">
-                <Span $fontSize="1.5rem">{review.name}</Span>
-                {loginUser && loginUser.email === review.email && (
-                  <Button
-                    $backgroundColor="inherit"
-                    onClick={() => deletePost("goodsReview", review.postid)}
-                  >
-                    <SVGIcon
-                      type="CloseButtonBlack"
-                      $width="10px"
-                      $height="10px"
-                    />
-                  </Button>
-                )}
-              </Container>
-              <Image
-                src={review.image}
-                alt="사진"
-                $width="100%"
-                $margin="0 0 10px 0"
-              />
-              <Container $alignItems="center" $margin="0 0 10px 0">
-                <Heading
-                  as="h3"
-                  $fontSize="2rem"
-                  $fontWeight="400"
-                  $margin="0 5px 0 0"
-                >
-                  {review.subject}
-                </Heading>
-                {loginUser && loginUser.email === review.email && (
-                  <LinkButton
-                    to={{
-                      pathname: "/CarWashGoodsReviewModifyPage",
-                      state: {
-                        reviewSubject: `${review.subject}`,
-                        reviewMainText: `${review.mainText}`,
-                        reviewImage: `${review.image}`,
-                        reviewName: `${review.name}`,
-                        postid: `${review.postid}`,
-                      },
-                    }}
-                    $width="15px"
-                    $height="15px"
-                    $backgroundColor="inherit"
-                  >
-                    <SVGIcon type="ModifyPen" $width="15px" $height="15px" />
-                  </LinkButton>
-                )}
-              </Container>
-              <Paragraph $fontSize="1.5rem" $lineHeight="2rem">
-                {review.mainText}
-              </Paragraph>
-            </Container>
-          );
-        })}
+      <LinkButton
+        to="/CarWashGoodsReviewList"
+        $display="block"
+        $fontSize="1.3rem"
+        $margin="15px 0"
+        $color={color.themeMain}
+      >
+        용품 사용 후기 &gt;
+      </LinkButton>
+      <Container
+        $justifyContent="space-between"
+        $alignItems="center"
+        $margin="10px 0 10px 0"
+      >
+        <Heading $fontSize="3rem" $fontWeight="400">
+          {goodsReview.subject}
+        </Heading>
+        {loginUser && loginUser.email === goodsReview.email && (
+          <LinkButton
+            to={{
+              pathname: "/CarWashGoodsReviewModifyPage",
+              state: {
+                reviewSubject: `${goodsReview.subject}`,
+                reviewMainText: `${goodsReview.mainText}`,
+                reviewImage: `${goodsReview.image}`,
+                reviewName: `${goodsReview.name}`,
+                postid: `${goodsReview.postid}`,
+              },
+            }}
+            $width="20px"
+            $height="20px"
+            $backgroundColor="inherit"
+          >
+            <SVGIcon type="ModifyPen" $width="20px" $height="20px" />
+          </LinkButton>
+        )}
       </Container>
+      <Container $flexFlow="column" $margin="0 0 10px 0">
+        <Span $fontSize="1.5rem" $margin="0 0 5px 0">
+          {goodsReview.name}
+        </Span>
+        <Span $fontSize="1.2rem">{goodsReview.uploadDate}</Span>
+      </Container>
+      <DivisionLine $margin="10px 0" />
+      <Paragraph $fontSize="1.8rem" $margin="0 0 10px 0">
+        {goodsReview.mainText}
+      </Paragraph>
+      <Image src={goodsReview.image} $width="100%" />
     </>
   );
 };
