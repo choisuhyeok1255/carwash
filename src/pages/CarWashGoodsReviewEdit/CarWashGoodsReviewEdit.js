@@ -40,7 +40,7 @@ const CarWashGoodsReviewEdit = ({ history }) => {
     );
 
     const uploadGoodsReview = (url) => {
-      db.collection("goodsReview").add({
+      db.collection("goodsReview").doc(getPostId()).set({
         name: state.currentUser.name,
         email: state.currentUser.email,
         uid: state.currentUser.uid,

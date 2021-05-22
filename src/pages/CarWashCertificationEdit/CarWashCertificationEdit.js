@@ -38,7 +38,7 @@ const CarWashCertificationEdit = ({ history }) => {
     );
 
     const uploadCertificationImage = (url) => {
-      db.collection("certificationImage").add({
+      db.collection("certificationImage").doc(getPostId()).set({
         name: state.currentUser.name,
         email: state.currentUser.email,
         uid: state.currentUser.uid,
