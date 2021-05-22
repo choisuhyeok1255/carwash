@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <Container $background="black" $height="50px">
+    <Container $background={color.themeMain} $height="50px">
       <Container
         $width="420px"
         $justifyContent="space-between"
