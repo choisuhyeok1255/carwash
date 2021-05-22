@@ -1,4 +1,4 @@
-import { Button, Heading, LinkHeader, Portal } from "components";
+import { Button, Heading, LinkButton, LinkHeader, Portal } from "components";
 import Container from "components/Container/Container";
 import { LoginModalDialog } from "containers";
 import React, { useState } from "react";
@@ -35,14 +35,15 @@ const Header = () => {
           </LinkHeader>
         </Heading>
         {loginUser ? (
-          <Container>
-            <Button
-              $backgroundColor="inherit"
+          <Container $alignItems="center">
+            <LinkButton
+              to="/CarWashProfile"
               $margin="0 15px 0 0"
               $color={color.textWhite}
+              $fontSize="1.4rem"
             >
-              출석
-            </Button>
+              마이페이지
+            </LinkButton>
             <Button
               $backgroundColor="inherit"
               $color={color.textWhite}
