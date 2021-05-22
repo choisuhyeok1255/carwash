@@ -1,4 +1,5 @@
 export const color = {
-  themeMain: "#c4c4c4",
+  themeBackgroundMain: "#c4c4c4",
+  themeMain: "#428bca",
   textWhite: "white",
 };
