@@ -7,7 +7,7 @@ import deletePost from "utils/post/deletePost";
 const CarWashUserCertificationPage = () => {
   const [userCertificationImages, setUserCertificationImages] = useState([]);
   const userProfile = useSelector((state) => state.auth.currentUser);
-  const { name, email, uid } = userProfile;
+  const { email, uid } = userProfile;
 
   useEffect(() => {
     db.collection("certificationImage")
@@ -26,7 +26,7 @@ const CarWashUserCertificationPage = () => {
         });
         setUserCertificationImages(temp);
       });
-  }, []);
+  }, [uid]);
 
   return (
     <Container $flexFlow="column" $padding="22px 0 0 0">

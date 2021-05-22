@@ -16,7 +16,7 @@ import deletePost from "utils/post/deletePost";
 const CarWashUserGoodsReviewPage = () => {
   const [goodsReview, setGoodsReview] = useState([]);
   const loginUser = useSelector((state) => state.auth.currentUser);
-  const { name, email, uid } = loginUser;
+  const { uid } = loginUser;
 
   useEffect(() => {
     db.collection("goodsReview")
@@ -37,7 +37,7 @@ const CarWashUserGoodsReviewPage = () => {
         });
         setGoodsReview(temp);
       });
-  }, []);
+  }, [uid]);
 
   return (
     <>

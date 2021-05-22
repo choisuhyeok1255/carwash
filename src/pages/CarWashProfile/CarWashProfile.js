@@ -8,7 +8,7 @@ const CarWashProfile = () => {
   const [certificationImages, setCertificationImages] = useState([]);
   const [goodsReviews, setGoodsReviews] = useState([]);
   const userProfile = useSelector((state) => state.auth.currentUser);
-  const { name, email, uid } = userProfile;
+  const { name, uid } = userProfile;
 
   useEffect(() => {
     db.collection("certificationImage")
@@ -44,7 +44,7 @@ const CarWashProfile = () => {
         });
         setGoodsReviews(goodsReviewsTemp);
       });
-  }, []);
+  }, [uid]);
 
   return (
     <>
