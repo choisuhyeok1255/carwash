@@ -32,17 +32,19 @@ const CarWashCertification = () => {
       </MainHeading>
       <Container $flexWrap="wrap" $justifyContent="space-between">
         {Images.map((image, index) => {
-          return (
-            <Container $justifyContent="space-between">
-              <Image
-                src={image.image}
-                alt="사진"
-                key={index}
-                $width="170px"
-                $margin="0 0 15px 0"
-              />
-            </Container>
-          );
+          if (index < 4) {
+            return (
+              <Container $justifyContent="space-between">
+                <Image
+                  src={image.image}
+                  alt="사진"
+                  key={index}
+                  $width="170px"
+                  $margin="0 0 15px 0"
+                />
+              </Container>
+            );
+          }
         })}
       </Container>
     </>

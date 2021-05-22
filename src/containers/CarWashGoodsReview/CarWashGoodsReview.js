@@ -32,15 +32,17 @@ const CarWashGoodsReview = () => {
       </MainHeading>
       <Container $flexWrap="wrap" $justifyContent="space-between">
         {Images.map((image, index) => {
-          return (
-            <Image
-              src={image.image}
-              alt="사용후기 미리보기 사진"
-              $width="170px"
-              $height="170px"
-              $margin="0 0 15px 0"
-            ></Image>
-          );
+          if (index < 4) {
+            return (
+              <Image
+                src={image.image}
+                alt="사용후기 미리보기 사진"
+                $width="170px"
+                $height="170px"
+                $margin="0 0 15px 0"
+              ></Image>
+            );
+          }
         })}
       </Container>
     </>
