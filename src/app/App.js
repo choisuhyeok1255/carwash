@@ -5,7 +5,11 @@ import {
   CarWashCertificationPage,
   CarWashGoodsReviewEdit,
   CarWashGoodsReviewPage,
+  CarWashGoodsReviewModifyPage,
   HomePage,
+  CarWashProfile,
+  CarWashUserCertificationPage,
+  CarWashUserGoodsReviewPage,
 } from "pages";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import styled from "styled-components";
@@ -41,8 +45,24 @@ function App() {
           />
           <Route
             exact
+            path="/CarWashGoodsReviewModifyPage"
+            component={CarWashGoodsReviewModifyPage}
+          />
+          <Route
+            exact
             path="/CarWashGoodsReviewPage"
             component={CarWashGoodsReviewPage}
+          />
+          <Route exact path="/CarWashProfile" component={CarWashProfile} />
+          <Route
+            exact
+            path="/CarWashUserCertificationPage"
+            component={CarWashUserCertificationPage}
+          />
+          <Route
+            exact
+            path="/CarWashUserGoodsReviewPage"
+            component={CarWashUserGoodsReviewPage}
           />
         </StyledMain>
       </Container>
