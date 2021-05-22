@@ -8,6 +8,7 @@ const StyledParagraph = styled.p`
   font-size: ${(props) => props.$fontSize};
   word-break: break-all;
   line-height: ${(props) => props.$lineHeight};
+  margin: ${(props) => props.$margin};
 `;
 
 const Paragraph = ({
@@ -16,6 +17,7 @@ const Paragraph = ({
   $height,
   $fontSize,
   $lineHeight,
+  $margin,
   children,
   ...restProps
 }) => {
@@ -26,6 +28,7 @@ const Paragraph = ({
       $height={$height}
       $fontSize={$fontSize}
       $lineHeight={$lineHeight}
+      $margin={$margin}
       {...restProps}
     >
       {children}

@@ -10,6 +10,7 @@ const StyledLink = styled(Link)`
   border-radius: ${(props) => props.$borderRadius};
   color: ${(props) => props.$color};
   font-size: ${(props) => props.$fontSize};
+  display: ${(props) => props.$display};
 `;
 
 const LinkButton = ({
@@ -19,6 +20,7 @@ const LinkButton = ({
   $backgroundColor,
   $borderRadius,
   $color,
+  $display,
   children,
   ...restProps
 }) => {
@@ -30,6 +32,7 @@ const LinkButton = ({
       $backgroundColor={$backgroundColor}
       $color={$color}
       $borderRadius={$borderRadius}
+      $display={$display}
       {...restProps}
     >
       {children}
