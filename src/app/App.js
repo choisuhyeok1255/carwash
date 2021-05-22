@@ -10,6 +10,7 @@ import {
   CarWashProfile,
   CarWashUserCertificationPage,
   CarWashUserGoodsReviewPage,
+  CarWashGoodsReviewList,
 } from "pages";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import styled from "styled-components";
@@ -50,7 +51,12 @@ function App() {
           />
           <Route
             exact
-            path="/CarWashGoodsReviewPage"
+            path="/CarWashGoodsReviewList"
+            component={CarWashGoodsReviewList}
+          />
+          <Route
+            exact
+            path="/CarWashGoodsReviewPage/:postid"
             component={CarWashGoodsReviewPage}
           />
           <Route exact path="/CarWashProfile" component={CarWashProfile} />
