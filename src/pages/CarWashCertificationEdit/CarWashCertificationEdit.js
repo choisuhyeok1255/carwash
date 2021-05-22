@@ -69,7 +69,7 @@ const CarWashCertificationEdit = ({ history }) => {
         <Button
           $width="120px"
           $height="30px"
-          $backgroundColor={color.themeMain}
+          $backgroundColor={color.themeBackgroundMain}
           $borderRadius="5px"
           $margin="20px 0 0 0"
           onClick={handlerCarWashImageUpload}

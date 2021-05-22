@@ -21,7 +21,7 @@ const CarWashGoodsReviewModifyPage = ({ location, history }) => {
 
   const handlerGoodsModifyUpload = (postid) => {
     updatePost("goodsReview", postid, subject, mainText);
-    history.push("/CarWashGoodsReviewPage");
+    history.goBack(1);
   };
 
   return (
@@ -66,7 +66,7 @@ const CarWashGoodsReviewModifyPage = ({ location, history }) => {
         <Button
           $width="120px"
           $height="30px"
-          $backgroundColor={color.themeMain}
+          $backgroundColor={color.themeBackgroundMain}
           $borderRadius="5px"
           $margin="20px 0 0 0"
           onClick={() => {
