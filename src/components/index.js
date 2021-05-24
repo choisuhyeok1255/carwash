@@ -18,3 +18,4 @@ export { default as Span } from "./Span/Span";
 export { default as Paragraph } from "./Paragraph/Paragraph";
 export { default as DivisionLine } from "./DivisionLine/DivisionLine";
 export { default as UlContainer } from "./UlContainer/UlContainer";
+export { default as Tab } from "./Tab/Tab";
