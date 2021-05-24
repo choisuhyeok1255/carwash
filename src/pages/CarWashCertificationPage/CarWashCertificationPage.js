@@ -32,34 +32,40 @@ const CarWashCertificationPage = () => {
       <SubHeading to="CarWashCertificationEdit" $margin="22px 0 32px 0">
         세차 인증
       </SubHeading>
-      {images.map((image) => {
-        return (
-          <Container $flexFlow="column" $margin="20px 0 15px 0">
-            <Container
-              $margin="0 30px 10px 30px"
-              $justifyContent="space-between"
-            >
-              <Span $fontSize="1.5rem">{image.name}</Span>
-              {loginUser && loginUser.email === image.email && (
-                <Button
-                  $backgroundColor="inherit"
-                  onClick={() => deletePost("certificationImage", image.postid)}
+      <ul>
+        {images.map((image, i) => {
+          return (
+            <li key={i}>
+              <Container $flexFlow="column" $margin="20px 0 15px 0">
+                <Container
+                  $margin="0 30px 10px 30px"
+                  $justifyContent="space-between"
                 >
-                  <SVGIcon
-                    type="CloseButtonBlack"
-                    $width="10px"
-                    $height="10px"
-                  />
-                </Button>
-              )}
-            </Container>
-            <Image src={image.image} alt="사진" $width="100%" />
-            <Span $margin="10px 0 10px 30px" $fontSize="1.2rem">
-              {image.uploadDate}
-            </Span>
-          </Container>
-        );
-      })}
+                  <Span $fontSize="1.5rem">{image.name}</Span>
+                  {loginUser && loginUser.email === image.email && (
+                    <Button
+                      $backgroundColor="inherit"
+                      onClick={() =>
+                        deletePost("certificationImage", image.postid)
+                      }
+                    >
+                      <SVGIcon
+                        type="CloseButtonBlack"
+                        $width="10px"
+                        $height="10px"
+                      />
+                    </Button>
+                  )}
+                </Container>
+                <Image src={image.image} alt="사진" $width="100%" />
+                <Span $margin="10px 0 10px 30px" $fontSize="1.2rem">
+                  {image.uploadDate}
+                </Span>
+              </Container>
+            </li>
+          );
+        })}
+      </ul>
     </>
   );
 };

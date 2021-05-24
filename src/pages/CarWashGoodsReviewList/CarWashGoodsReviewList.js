@@ -17,11 +17,11 @@ const CarWashGoodsReviewList = () => {
 
   return (
     <>
-      <Heading $margin="22px 0  ">용품 후기 리스트</Heading>
+      <Heading $margin="22px 0">용품 후기 리스트</Heading>
       <ol>
-        {goodsReviewList.map((goodsReview) => {
+        {goodsReviewList.map((goodsReview, i) => {
           return (
-            <>
+            <GoodsReviewList key={i}>
               <Container
                 $height="40px"
                 $justifyContent="space-between"
@@ -35,14 +35,14 @@ const CarWashGoodsReviewList = () => {
                     },
                   }}
                 >
-                  <GoodsReviewList>{goodsReview.subject}</GoodsReviewList>
+                  <Span>{goodsReview.subject}</Span>
                 </Link>
-                <Container $width="100px" $justifyContent="space-between">
-                  <Span>{goodsReview.name}</Span>
-                  <Span>{goodsReview.uploadDate}</Span>
+                <Container $width="110px" $justifyContent="space-between">
+                  <Span $fontSize="1.2rem">{goodsReview.name}</Span>
+                  <Span $fontSize="1.2rem">{goodsReview.uploadDate}</Span>
                 </Container>
               </Container>
-            </>
+            </GoodsReviewList>
           );
         })}
       </ol>
