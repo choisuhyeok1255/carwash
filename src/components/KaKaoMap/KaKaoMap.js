@@ -26,6 +26,8 @@ const KaKaoMap = ({ $width, $height, searchValue, ...restProps }) => {
       const map = new kakao.maps.Map(container, options);
       const ps = new kakao.maps.services.Places();
 
+      //badRequest 때문에 input 값이 빈 값일 때 return 시킴
+      if (!searchValue) return;
       ps.keywordSearch(searchValue, placesSearchCB);
 
       function placesSearchCB(data, status, pagination) {
