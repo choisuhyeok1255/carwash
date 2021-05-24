@@ -7,6 +7,11 @@ import { ReactComponent as Kakao } from "assets/Kakao.svg";
 import { ReactComponent as Naver } from "assets/Naver.svg";
 import { ReactComponent as ModifyPen } from "assets/ModifyPen.svg";
 import { ReactComponent as SportsCar } from "assets/SportsCar.svg";
+import { ReactComponent as Certification } from "assets/Certification.svg";
+import { ReactComponent as HamburgerMenu } from "assets/HamburgerMenu.svg";
+import { ReactComponent as Map } from "assets/Map.svg";
+import { ReactComponent as Review } from "assets/Review.svg";
+import { ReactComponent as AttendanceCheck } from "assets/AttendanceCheck.svg";
 
 const SVGIcon = ({ type, $width, $height, ...restProps }) => {
   let SVGIcon = null;
@@ -36,6 +41,21 @@ const SVGIcon = ({ type, $width, $height, ...restProps }) => {
       break;
     case "SportsCar":
       SVGIcon = SportsCar;
+      break;
+    case "Certification":
+      SVGIcon = Certification;
+      break;
+    case "HamburgerMenu":
+      SVGIcon = HamburgerMenu;
+      break;
+    case "Map":
+      SVGIcon = Map;
+      break;
+    case "Review":
+      SVGIcon = Review;
+      break;
+    case "AttendanceCheck":
+      SVGIcon = AttendanceCheck;
       break;
   }
   return <SVGIcon width={$width} height={$height} {...restProps} />;
