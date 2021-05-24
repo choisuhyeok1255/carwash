@@ -24,7 +24,12 @@ const CarWashGoodsReviewPage = ({ location }) => {
   return (
     <>
       <LinkButton
-        to="/CarWashGoodsReviewList"
+        to={{
+          pathname: "/",
+          state: {
+            activeTab: 2,
+          },
+        }}
         $display="block"
         $fontSize="1.3rem"
         $margin="15px 0"
