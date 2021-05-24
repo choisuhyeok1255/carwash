@@ -11,6 +11,7 @@ import {
   CarWashUserCertificationPage,
   CarWashUserGoodsReviewPage,
   CarWashGoodsReviewList,
+  AttendanceCheckPage,
 } from "pages";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import styled from "styled-components";
@@ -69,6 +70,11 @@ function App() {
             exact
             path="/CarWashUserGoodsReviewPage"
             component={CarWashUserGoodsReviewPage}
+          />
+          <Route
+            exact
+            path="/AttendanceCheckPage"
+            component={AttendanceCheckPage}
           />
         </StyledMain>
       </Container>

@@ -1,21 +1,11 @@
-import { DivisionLine } from "components";
-import {
-  CarWashCertification,
-  CarWashGoodsReview,
-  YoutubeAndShop,
-  SearchCarWash,
-} from "containers";
+import { Tab } from "components";
+import {} from "containers";
 import React from "react";
 
-const HomePage = () => {
+const HomePage = ({ location }) => {
   return (
     <>
-      <YoutubeAndShop />
-      <SearchCarWash />
-      <DivisionLine $margin="30px 0" />
-      <CarWashCertification />
-      <DivisionLine $margin="30px 0" />
-      <CarWashGoodsReview />
+      <Tab location={location} />
     </>
   );
 };

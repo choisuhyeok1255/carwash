@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { signInSuccessAction } from "store/modules/auth/authActionCreator";
 import styled from "styled-components";
+import { setAttendance } from "utils/attendanceCheck";
 import { db } from "utils/firebaseConfig";
 import { googleSignIn } from "utils/googleSignInOut";
 
@@ -42,6 +43,7 @@ const LoginModalDialog = ({ setIsModalOpen, loginUser, setLoginUser }) => {
 
   useEffect(() => {
     loginUser && dispatch(signInSuccessAction(loginUser));
+    loginUser && setAttendance(loginUser.name, loginUser.uid);
     loginUser && setIsModalOpen(false);
   }, [dispatch, loginUser, setIsModalOpen]);
 

@@ -8,3 +8,4 @@ export { default as CarWashProfile } from "./CarWashProfile/CarWashProfile";
 export { default as CarWashUserCertificationPage } from "./CarWashUserCertificationPage/CarWashUserCertificationPage";
 export { default as CarWashUserGoodsReviewPage } from "./CarWashUserGoodsReviewPage/CarWashUserGoodsReviewPage";
 export { default as CarWashGoodsReviewList } from "./CarWashGoodsReviewList/CarWashGoodsReviewList";
+export { default as AttendanceCheckPage } from "./AttendanceCheckPage/AttendanceCheckPage";
