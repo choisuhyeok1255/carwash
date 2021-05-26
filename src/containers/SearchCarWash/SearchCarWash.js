@@ -1,10 +1,5 @@
-import { Container, Form, Input, KaKaoMap } from "components";
+import { Container, Form, Heading, Input, KaKaoMap } from "components";
 import React, { useState } from "react";
-import styled from "styled-components";
-
-const SearchHeading = styled.h2`
-  font-size: 2rem;
-`;
 
 const SearchCarWash = () => {
   const [inputText, setInputText] = useState("");
@@ -21,8 +16,8 @@ const SearchCarWash = () => {
   };
 
   return (
-    <Container $flexFlow="column" $margin="40px 0 0 0">
-      <SearchHeading>세차장 검색</SearchHeading>
+    <Container $flexFlow="column" $margin="22px 0 0 0">
+      <Heading>세차장 검색</Heading>
       <Form onSubmit={submitHandler}>
         <Input
           placeholder="세차장을 검색하세요..."
