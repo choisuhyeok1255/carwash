@@ -4,12 +4,18 @@ import {
   AttendanceCheckPage,
   CarWashCertificationPage,
   CarWashGoodsReviewList,
+  HamburgerMenu,
 } from "pages";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { color } from "styles/color";
 
 const TabList = styled.ul`
   display: flex;
+  position: fixed;
+  width: 420px;
+  bottom: 0;
+  background-color: ${color.themeMain};
 `;
 
 const TabListItem = styled.li`
@@ -33,17 +39,17 @@ const Tab = ({ location }) => {
 
   const [tabState, setTabState] = useState(initObj);
   const tabObj = {
-    0: <SearchCarWash />,
-    1: <CarWashCertificationPage />,
-    2: <CarWashGoodsReviewList />,
+    0: <CarWashCertificationPage />,
+    1: <CarWashGoodsReviewList />,
+    2: <SearchCarWash />,
     3: <AttendanceCheckPage />,
-    4: "햄버거메뉴",
+    4: <HamburgerMenu />,
   };
 
   const tabMenu = [
-    <SVGIcon type="Map" $width="20px" $height="20px" />,
     <SVGIcon type="Certification" $width="20px" $height="20px" />,
     <SVGIcon type="Review" $width="20px" $height="20px" />,
+    <SVGIcon type="Map" $width="20px" $height="20px" />,
     <SVGIcon type="AttendanceCheck" $width="20px" $height="20px" />,
     <SVGIcon type="HamburgerMenu" $width="20px" $height="20px" />,
   ];
