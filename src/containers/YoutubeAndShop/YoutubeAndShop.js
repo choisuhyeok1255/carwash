@@ -1,12 +1,14 @@
 import { Container, LinkToWebsite } from "components";
 import React from "react";
+import { color } from "styles/color";
 
 const YoutubeAndShop = () => {
   return (
-    <Container $justifyContent="space-between" $margin="22px 0 0 0">
+    <Container $flexFlow="column" $margin="22px 0 0 0">
       <LinkToWebsite
-        href={"https://www.youtube.com/channel/UCB3TwWFdgQnu0Q3iLc4ZXLA"}
+        href="https://www.youtube.com/channel/UCB3TwWFdgQnu0Q3iLc4ZXLA"
         title="세차영상 유튜브 바로가기"
+        $borderTop={`1px solid ${color.themeMain}`}
       >
         세차 영상
       </LinkToWebsite>
@@ -17,6 +19,9 @@ const YoutubeAndShop = () => {
         title="세차용품 쇼핑몰 바로가기"
       >
         쇼핑몰
+      </LinkToWebsite>
+      <LinkToWebsite href="https://github.com/choisuhyeok1255">
+        최수혁
       </LinkToWebsite>
     </Container>
   );
