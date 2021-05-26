@@ -1,4 +1,5 @@
-import React from "react";
+import { SkeletonUI } from "components";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const StyledImage = styled.img`
@@ -25,20 +26,29 @@ const Image = ({
   $zIndex,
   ...restProps
 }) => {
+  const [isImgLoading, setIsImgLoading] = useState(true);
+
+  const handlerIsImgLoading = () => {
+    setIsImgLoading(false);
+  };
   return (
-    <StyledImage
-      src={src}
-      alt={alt}
-      $width={$width}
-      $height={$height}
-      $margin={$margin}
-      $position={$position}
-      $top={$top}
-      $left={$left}
-      $borderRadius={$borderRadius}
-      $zIndex={$zIndex}
-      {...restProps}
-    />
+    <>
+      {isImgLoading ? <SkeletonUI $height="320px" /> : null}
+      <StyledImage
+        src={src}
+        alt={alt}
+        $width={$width}
+        $height={$height}
+        $margin={$margin}
+        $position={$position}
+        $top={$top}
+        $left={$left}
+        $borderRadius={$borderRadius}
+        $zIndex={$zIndex}
+        onLoad={handlerIsImgLoading}
+        {...restProps}
+      />
+    </>
   );
 };
 
