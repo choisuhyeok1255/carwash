@@ -19,3 +19,4 @@ export { default as Paragraph } from "./Paragraph/Paragraph";
 export { default as DivisionLine } from "./DivisionLine/DivisionLine";
 export { default as UlContainer } from "./UlContainer/UlContainer";
 export { default as Tab } from "./Tab/Tab";
+export { default as SkeletonUI } from "./SkeletonUI/SkeletonUI";
