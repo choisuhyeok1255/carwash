@@ -9,3 +9,4 @@ export { default as CarWashUserCertificationPage } from "./CarWashUserCertificat
 export { default as CarWashUserGoodsReviewPage } from "./CarWashUserGoodsReviewPage/CarWashUserGoodsReviewPage";
 export { default as CarWashGoodsReviewList } from "./CarWashGoodsReviewList/CarWashGoodsReviewList";
 export { default as AttendanceCheckPage } from "./AttendanceCheckPage/AttendanceCheckPage";
+export { default as HamburgerMenu } from "./HamburgerMenu/HamburgerMenu";
