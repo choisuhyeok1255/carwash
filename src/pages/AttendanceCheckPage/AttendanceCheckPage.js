@@ -1,4 +1,4 @@
-import { Heading, Span } from "components";
+import { Container, Heading, Span, SVGIcon } from "components";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
@@ -26,8 +26,19 @@ const AttendanceCheckPage = () => {
         {attendanceList.map((list, index) => {
           return (
             <AttendanceListItem key={index}>
-              <Span $margin="0 10px 0 0 ">{index + 1}등</Span>
-              {list.userName}
+              <Container $alignItems="center">
+                <Span $margin="0 10px 0 0 ">{index + 1}등</Span>
+                <Span $margin="0 10px 0 0 ">{list.userName}</Span>
+                {index === 0 ? (
+                  <SVGIcon type="FirstMedal" $width="20px" $height="20px" />
+                ) : null}
+                {index === 1 ? (
+                  <SVGIcon type="SecondMedal" $width="20px" $height="20px" />
+                ) : null}
+                {index === 2 ? (
+                  <SVGIcon type="ThirdMedal" $width="20px" $height="20px" />
+                ) : null}
+              </Container>
             </AttendanceListItem>
           );
         })}
