@@ -28,8 +28,8 @@ function App() {
     <Router>
       <Container $flexFlow="column" $alignItems="center">
         <Header />
+        <Route exact path="/" component={HomePage} />
         <StyledMain>
-          <Route exact path="/" component={HomePage} />
           <Route
             exact
             path="/CarWashCertificationEdit"
