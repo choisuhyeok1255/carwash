@@ -27,7 +27,7 @@ const CarWashGoodsReviewPage = ({ location }) => {
         to={{
           pathname: "/",
           state: {
-            activeTab: 2,
+            activeTab: 1,
           },
         }}
         $display="block"
