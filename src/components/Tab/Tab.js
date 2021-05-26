@@ -14,7 +14,10 @@ const TabList = styled.ul`
   display: flex;
   position: fixed;
   width: 420px;
-  bottom: 0;
+  bottom: 0px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
   background-color: ${color.themeMain};
 `;
 
