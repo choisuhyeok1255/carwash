@@ -21,7 +21,7 @@ const AttendanceCheckPage = () => {
 
   return (
     <>
-      <Heading $margin="22px 0 0 0">출석 체크</Heading>
+      <Heading $margin="22px 0 0 10px">출석 체크</Heading>
       <AttendanceList>
         {attendanceList.map((list, index) => {
           return (

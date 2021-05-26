@@ -32,7 +32,7 @@ const CarWashGoodsReviewPage = ({ location }) => {
         }}
         $display="block"
         $fontSize="1.3rem"
-        $margin="15px 0"
+        $margin="15px 0 15px 10px"
         $color={color.themeMain}
       >
         용품 사용 후기 &gt;

@@ -17,7 +17,7 @@ const CarWashGoodsReviewList = () => {
 
   return (
     <>
-      <Heading $margin="22px 0">용품 후기 리스트</Heading>
+      <Heading $margin="22px 0 22px 10px">용품 후기 리스트</Heading>
       <ol>
         {goodsReviewList.length === 0 ? (
           <>
