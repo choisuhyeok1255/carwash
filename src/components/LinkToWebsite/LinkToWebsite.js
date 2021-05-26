@@ -5,10 +5,12 @@ import { color } from "styles/color";
 const StyledLinkToWebsite = styled.a`
   font-size: 1.5rem;
   color: ${color.themeMain};
-  background: white;
-  border: 1px solid ${color.themeMain};
-  border-radius: 5px;
-  padding: 10px 15px;
+  border-top: ${(props) => props.$borderTop};
+  border-bottom: 1px solid ${color.themeMain};
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
 
   :hover {
     background: ${color.themeMain};
@@ -16,9 +18,9 @@ const StyledLinkToWebsite = styled.a`
   }
 `;
 
-const LinkToWebsite = ({ href, children, ...restProps }) => {
+const LinkToWebsite = ({ href, children, $borderTop, ...restProps }) => {
   return (
-    <StyledLinkToWebsite href={href} {...restProps}>
+    <StyledLinkToWebsite href={href} $borderTop={$borderTop} {...restProps}>
       {children}
     </StyledLinkToWebsite>
   );
