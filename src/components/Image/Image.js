@@ -24,6 +24,7 @@ const Image = ({
   $left,
   $borderRadius,
   $zIndex,
+  $skeletonWidth,
   ...restProps
 }) => {
   const [isImgLoading, setIsImgLoading] = useState(true);
@@ -33,7 +34,9 @@ const Image = ({
   };
   return (
     <>
-      {isImgLoading ? <SkeletonUI $height="320px" /> : null}
+      {isImgLoading ? (
+        <SkeletonUI $height={$skeletonWidth ? $skeletonWidth : `320px`} />
+      ) : null}
       <StyledImage
         src={src}
         alt={alt}
