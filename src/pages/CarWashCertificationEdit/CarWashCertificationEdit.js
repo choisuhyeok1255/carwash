@@ -32,7 +32,7 @@ const CarWashCertificationEdit = ({ history }) => {
           .getDownloadURL()
           .then((url) => {
             uploadCertificationImage(url);
-            history.push("/CarWashCertificationPage");
+            history.push("/");
           });
       }
     );
@@ -42,6 +42,7 @@ const CarWashCertificationEdit = ({ history }) => {
         name: state.currentUser.name,
         email: state.currentUser.email,
         uid: state.currentUser.uid,
+        profileImg: state.currentUser.defaultProfileImage,
         uploadDate: getToday(),
         image: url,
         postid: getPostId(),
