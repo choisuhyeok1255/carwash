@@ -39,6 +39,7 @@ const CarWashGoodsReviewList = () => {
                   $height="40px"
                   $justifyContent="space-between"
                   $alignItems="center"
+                  $margin="0 10px"
                 >
                   <Link
                     to={{
