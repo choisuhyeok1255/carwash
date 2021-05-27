@@ -8,7 +8,7 @@ const AttendanceList = styled.ol`
   margin: 30px 0 0 0;
 `;
 const AttendanceListItem = styled.li`
-  margin: 0 0 10px 0;
+  margin: 0 0 10px 10px;
   font-size: 1.5rem;
 `;
 
