@@ -10,42 +10,20 @@ import { SubHeading } from "containers";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import deletePost from "utils/post/deletePost";
-import { db } from "utils/firebaseConfig";
-import { getLikeCount } from "utils/likeCount";
+import { likeCountPlus } from "utils/likeCount";
+import getCertificationPost from "utils/post/getCertificationPost";
 
 const CarWashCertificationPage = () => {
   const [images, setImages] = useState([]);
-  // const [likeCount, setLikeCount] = useState([]);
   const loginUser = useSelector((state) => state.auth.currentUser);
 
   useEffect(() => {
-    // const likeCountTemp = [];
-    const temp = [];
-    db.collection("certificationImage")
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          temp.push({
-            image: doc.data().image,
-            name: doc.data().name,
-            uploadDate: doc.data().uploadDate,
-            postid: doc.data().postid,
-            email: doc.data().email,
-            likeCount: doc.data().likeCount,
-          });
-
-          // likeCountTemp.push(doc.data().likeCount);
-        });
-        setImages(temp);
-        // setLikeCount(likeCountTemp);
-      });
+    getCertificationPost("certificationImage", setImages);
   }, []);
 
-  console.log(images);
-
   return (
-    <>
-      <SubHeading to="CarWashCertificationEdit" $margin="22px 0 32px 0">
+    <Container $flexFlow="column" $margin="0 0 80px 0">
+      <SubHeading to="CarWashCertificationEdit" $margin="22px 10px 12px 10px">
         세차 인증
       </SubHeading>
       <ul>
@@ -54,10 +32,20 @@ const CarWashCertificationPage = () => {
             <li key={i}>
               <Container $flexFlow="column" $margin="20px 0 15px 0">
                 <Container
-                  $margin="0 30px 10px 30px"
+                  $margin="0 30px 5px 30px"
                   $justifyContent="space-between"
                 >
-                  <Span $fontSize="1.6rem">{image.name}</Span>
+                  <Container $alignItems="center">
+                    <Image
+                      src={image.userProfileImg}
+                      alt={`${image.name}님의 프로필사진`}
+                      $width="30px"
+                      $height="30px"
+                      $margin="0 10px 0 0"
+                      $skeletonWidth="30px"
+                    />
+                    <Span $fontSize="1.6rem">{image.name}</Span>
+                  </Container>
                   {loginUser && loginUser.email === image.email && (
                     <Button
                       $backgroundColor="inherit"
@@ -79,7 +67,7 @@ const CarWashCertificationPage = () => {
                     $backgroundColor="inherit"
                     $display="flex"
                     onClick={() => {
-                      getLikeCount(image.postid);
+                      likeCountPlus(image.postid, setImages);
                     }}
                   >
                     <SVGIcon type="Heart" $width="20px" $height="20px" />
@@ -97,7 +85,7 @@ const CarWashCertificationPage = () => {
           );
         })}
       </ul>
-    </>
+    </Container>
   );
 };
 
