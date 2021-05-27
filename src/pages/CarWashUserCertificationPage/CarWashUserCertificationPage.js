@@ -1,4 +1,4 @@
-import { Button, Container, Image, Span, SVGIcon } from "components";
+import { Button, Container, Heading, Image, Span, SVGIcon } from "components";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { db } from "utils/firebaseConfig";
@@ -7,7 +7,7 @@ import deletePost from "utils/post/deletePost";
 const CarWashUserCertificationPage = () => {
   const [userCertificationImages, setUserCertificationImages] = useState([]);
   const userProfile = useSelector((state) => state.auth.currentUser);
-  const { email, uid } = userProfile;
+  const { email, uid, name } = userProfile;
 
   useEffect(() => {
     db.collection("certificationImage")
@@ -22,6 +22,7 @@ const CarWashUserCertificationPage = () => {
             uploadDate: doc.data().uploadDate,
             postid: doc.data().postid,
             email: doc.data().email,
+            userProfileImg: doc.data().profileImg,
           });
         });
         setUserCertificationImages(temp);
@@ -30,14 +31,25 @@ const CarWashUserCertificationPage = () => {
 
   return (
     <Container $flexFlow="column" $padding="22px 0 0 0">
+      <Heading>{name}님의 세차 인증</Heading>
       {userCertificationImages.map((image) => {
         return (
           <Container $flexFlow="column" $margin="20px 0 15px 0">
             <Container
-              $margin="0 30px 10px 30px"
+              $margin="0 30px 5px 30px"
               $justifyContent="space-between"
             >
-              <Span $fontSize="1.5rem">{image.name}</Span>
+              <Container $alignItems="center">
+                <Image
+                  src={image.userProfileImg}
+                  alt={`${image.name}님의 프로필사진`}
+                  $width="30px"
+                  $height="30px"
+                  $margin="0 10px 0 0"
+                  $skeletonWidth="30px"
+                />
+                <Span $fontSize="1.6rem">{image.name}</Span>
+              </Container>
               {userProfile && email === image.email && (
                 <Button
                   $backgroundColor="inherit"
