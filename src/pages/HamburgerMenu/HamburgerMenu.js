@@ -1,7 +1,6 @@
 import { Container, LinkToWebsite } from "components";
 import React from "react";
 import styled from "styled-components";
-import { color } from "styles/color";
 
 const DisableLinkToWebsite = styled(LinkToWebsite)`
   :hover {
@@ -12,11 +11,10 @@ const DisableLinkToWebsite = styled(LinkToWebsite)`
 const HamburgerMenu = () => {
   return (
     <>
-      <Container $flexFlow="column" $margin="22px 0 0 0">
+      <Container $flexFlow="column" $width="100%">
         <LinkToWebsite
           href="https://www.youtube.com/channel/UCB3TwWFdgQnu0Q3iLc4ZXLA"
           title="세차영상 유튜브 바로가기"
-          $borderTop={`1px solid ${color.themeMain}`}
         >
           세차 영상
         </LinkToWebsite>
@@ -28,10 +26,19 @@ const HamburgerMenu = () => {
         >
           쇼핑몰
         </LinkToWebsite>
-        <DisableLinkToWebsite href="#">개발중</DisableLinkToWebsite>
-        <DisableLinkToWebsite href="#">개발중</DisableLinkToWebsite>
-        <DisableLinkToWebsite href="#">개발중</DisableLinkToWebsite>
-        <LinkToWebsite href="https://github.com/choisuhyeok1255">
+        <DisableLinkToWebsite href="#" title="메뉴 개발중...">
+          개발중
+        </DisableLinkToWebsite>
+        <DisableLinkToWebsite href="#" title="메뉴 개발중...">
+          개발중
+        </DisableLinkToWebsite>
+        <DisableLinkToWebsite href="#" title="메뉴 개발중...">
+          개발중
+        </DisableLinkToWebsite>
+        <LinkToWebsite
+          href="https://github.com/choisuhyeok1255"
+          title="제작자 깃허브 페이지"
+        >
           만든이: choisuhyeok
         </LinkToWebsite>
       </Container>
