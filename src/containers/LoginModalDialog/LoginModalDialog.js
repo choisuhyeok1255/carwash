@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { signInSuccessAction } from "store/modules/auth/authActionCreator";
 import styled from "styled-components";
 import { setAttendance } from "utils/attendanceCheck";
-import { db } from "utils/firebaseConfig";
+import { db, storage } from "utils/firebaseConfig";
 import { googleSignIn } from "utils/googleSignInOut";
 
 const LoginButton = styled(Button)`
@@ -28,16 +28,24 @@ const LoginModalDialog = ({ setIsModalOpen, loginUser, setLoginUser }) => {
   const handlerGoogleLogin = async () => {
     const login = await googleSignIn();
 
+    const defaultImgUrl = await storage
+      .refFromURL(
+        "gs://donggukcarwash.appspot.com/defaultProfileImage/SportsCar.svg"
+      )
+      .getDownloadURL();
+
     await db.collection("users").doc(login.user.uid).set({
       name: login.user.displayName,
       email: login.user.email,
       uid: login.user.uid,
+      defaultProfileImage: defaultImgUrl,
     });
 
     setLoginUser({
       name: login.user.displayName,
       email: login.user.email,
       uid: login.user.uid,
+      defaultProfileImage: defaultImgUrl,
     });
   };
 
