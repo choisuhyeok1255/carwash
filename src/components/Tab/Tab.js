@@ -1,12 +1,14 @@
-import { SVGIcon } from "components";
+import { Image, SVGIcon } from "components";
 import { SearchCarWash } from "containers";
 import {
   AttendanceCheckPage,
   CarWashCertificationPage,
   CarWashGoodsReviewList,
+  CarWashProfile,
   HamburgerMenu,
 } from "pages";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { color } from "styles/color";
 
@@ -26,6 +28,11 @@ const TabListItem = styled.li`
   height: 50px;
 `;
 
+const TabListItemLogin = styled.li`
+  width: 70px;
+  height: 50px;
+`;
+
 const TabListItemButton = styled.button`
   width: 100%;
   height: 100%;
@@ -39,6 +46,8 @@ const Tab = ({ location }) => {
   const initSelectMenu = [false, false, false, false];
   const [selectMenu, setSelectMenu] = useState(initSelectMenu);
   const selectStyled = { borderstyled: "1px solid black" };
+  const loginUser = useSelector((state) => state.auth.currentUser);
+  const { defaultProfileImage } = loginUser ? loginUser : "#";
 
   const [tabState, setTabState] = useState(initObj);
   const tabObj = {
@@ -48,12 +57,29 @@ const Tab = ({ location }) => {
     3: <AttendanceCheckPage />,
     4: <HamburgerMenu />,
   };
+  const loginObj = {
+    0: <CarWashCertificationPage />,
+    1: <CarWashGoodsReviewList />,
+    2: <SearchCarWash />,
+    3: <AttendanceCheckPage />,
+    4: <CarWashProfile />,
+    5: <HamburgerMenu />,
+  };
 
   const tabMenu = [
     <SVGIcon type="Certification" $width="20px" $height="20px" />,
     <SVGIcon type="Review" $width="20px" $height="20px" />,
     <SVGIcon type="Map" $width="20px" $height="20px" />,
     <SVGIcon type="AttendanceCheck" $width="20px" $height="20px" />,
+    <SVGIcon type="HamburgerMenu" $width="20px" $height="20px" />,
+  ];
+
+  const tabMenuLogin = [
+    <SVGIcon type="Certification" $width="20px" $height="20px" />,
+    <SVGIcon type="Review" $width="20px" $height="20px" />,
+    <SVGIcon type="Map" $width="20px" $height="20px" />,
+    <SVGIcon type="AttendanceCheck" $width="20px" $height="20px" />,
+    <Image src={defaultProfileImage} $width="20px" $height="20px" />,
     <SVGIcon type="HamburgerMenu" $width="20px" $height="20px" />,
   ];
 
@@ -72,20 +98,37 @@ const Tab = ({ location }) => {
   return (
     <div>
       <TabList>
-        {tabMenu.map((menu, i) => {
-          return (
-            <TabListItem key={i}>
-              <TabListItemButton
-                selectStyled={selectStyled}
-                onClick={() => handlerTabClick(i)}
-              >
-                {menu}
-              </TabListItemButton>
-            </TabListItem>
-          );
-        })}
+        {defaultProfileImage
+          ? tabMenuLogin.map((menu, i) => {
+              return (
+                <TabListItemLogin key={i}>
+                  <TabListItemButton
+                    selectStyled={selectStyled}
+                    onClick={() => handlerTabClick(i)}
+                  >
+                    {menu}
+                  </TabListItemButton>
+                </TabListItemLogin>
+              );
+            })
+          : tabMenu.map((menu, i) => {
+              return (
+                <TabListItem key={i}>
+                  <TabListItemButton
+                    selectStyled={selectStyled}
+                    onClick={() => handlerTabClick(i)}
+                  >
+                    {menu}
+                  </TabListItemButton>
+                </TabListItem>
+              );
+            })}
       </TabList>
-      <div>{tabObj[tabState.activeTab]}</div>
+      <div>
+        {defaultProfileImage
+          ? loginObj[tabState.activeTab]
+          : tabObj[tabState.activeTab]}
+      </div>
     </div>
   );
 };
