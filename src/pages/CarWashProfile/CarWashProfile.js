@@ -62,15 +62,11 @@ const CarWashProfile = () => {
         toPage="/CarWashUserCertificationPage"
         toEdit="/CarWashCertificationEdit"
         $fontSize="2rem"
-        $margin="55px 30px 20px 30px"
+        $margin="55px 0 20px 0"
       >
         {name}님의 세차 인증
       </MainHeading>
-      <Container
-        $flexWrap="wrap"
-        $justifyContent="space-between"
-        $margin="0 30px"
-      >
+      <Container $flexWrap="wrap" $justifyContent="space-between">
         {certificationImages.map((image) => {
           return (
             <Image
@@ -86,14 +82,14 @@ const CarWashProfile = () => {
         toPage="/CarWashUserGoodsReviewPage"
         toEdit="/CarWashGoodsReviewEdit"
         $fontSize="2rem"
-        $margin="55px 30px 20px 30px"
+        $margin="55px 0 20px 0"
       >
         {name}님의 사용 후기
       </MainHeading>
       <Container
         $flexWrap="wrap"
         $justifyContent="space-between"
-        $margin="0 30px 80px 30px"
+        $margin="0 0 80px 0"
       >
         {goodsReviews.map((image) => {
           return (
