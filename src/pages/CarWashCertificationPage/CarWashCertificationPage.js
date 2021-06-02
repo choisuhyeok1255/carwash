@@ -23,7 +23,7 @@ const CarWashCertificationPage = () => {
 
   return (
     <Container $flexFlow="column" $margin="0 0 80px 0">
-      <SubHeading to="CarWashCertificationEdit" $margin="22px 10px 12px 10px">
+      <SubHeading to="CarWashCertificationEdit" $margin="22px 20px 12px 20px">
         세차 인증
       </SubHeading>
       <ul>

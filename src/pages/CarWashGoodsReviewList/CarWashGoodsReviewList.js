@@ -1,4 +1,5 @@
-import { Container, Heading, SkeletonUI, Span } from "components";
+import { Container, SkeletonUI, Span } from "components";
+import { SubHeading } from "containers";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -17,7 +18,9 @@ const CarWashGoodsReviewList = () => {
 
   return (
     <>
-      <Heading $margin="22px 0 22px 10px">용품 후기 리스트</Heading>
+      <SubHeading to="/CarWashGoodsReviewEdit" $margin="22px 20px 22px 20px">
+        용품 후기 리스트
+      </SubHeading>
       <ol>
         {goodsReviewList.length === 0 ? (
           <>
@@ -39,7 +42,7 @@ const CarWashGoodsReviewList = () => {
                   $height="40px"
                   $justifyContent="space-between"
                   $alignItems="center"
-                  $margin="0 10px"
+                  $margin="0 30px"
                 >
                   <Link
                     to={{

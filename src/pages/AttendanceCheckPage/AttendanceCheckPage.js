@@ -8,7 +8,7 @@ const AttendanceList = styled.ol`
   margin: 30px 0 0 0;
 `;
 const AttendanceListItem = styled.li`
-  margin: 0 0 10px 10px;
+  margin: 0 0 10px 30px;
   font-size: 1.5rem;
 `;
 
@@ -21,7 +21,7 @@ const AttendanceCheckPage = () => {
 
   return (
     <>
-      <Heading $margin="22px 0 0 10px">출석 체크</Heading>
+      <Heading $margin="22px 0 0 20px">출석 체크</Heading>
       <AttendanceList>
         {attendanceList.map((list, index) => {
           return (
