@@ -7,7 +7,7 @@ import { googleSignOut } from "utils/googleSignInOut";
 import { signOutSuccessAction } from "store/modules/auth/authActionCreator";
 import { color } from "styles/color";
 
-const Header = () => {
+const Header = ({ history }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loginUser, setLoginUser] = useState(null);
   const dispatch = useDispatch();
@@ -20,6 +20,7 @@ const Header = () => {
     googleSignOut();
     setLoginUser(null);
     dispatch(signOutSuccessAction(loginUser));
+    history.push("/");
   };
 
   return (

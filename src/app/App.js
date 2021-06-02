@@ -27,7 +27,7 @@ function App() {
   return (
     <Router>
       <Container $flexFlow="column" $alignItems="center">
-        <Header />
+        <Route path="/" component={Header} />
         <Route exact path="/" component={HomePage} />
         <StyledMain>
           <Route
