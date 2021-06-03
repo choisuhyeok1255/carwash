@@ -79,7 +79,12 @@ const Tab = ({ location }) => {
     <SVGIcon type="Review" $width="20px" $height="20px" />,
     <SVGIcon type="Map" $width="20px" $height="20px" />,
     <SVGIcon type="AttendanceCheck" $width="20px" $height="20px" />,
-    <Image src={defaultProfileImage} $width="20px" $height="20px" />,
+    <Image
+      src={defaultProfileImage}
+      $width="20px"
+      $height="20px"
+      $skeletonWidth="0"
+    />,
     <SVGIcon type="HamburgerMenu" $width="20px" $height="20px" />,
   ];
 
