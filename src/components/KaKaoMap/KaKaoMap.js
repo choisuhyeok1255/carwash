@@ -103,12 +103,13 @@ const KaKaoMap = ({ $width, $height, ...restProps }) => {
   return (
     <Form onSubmit={submitHandler}>
       <Input
+        $display="block"
         placeholder="세차장을 검색하세요..."
-        $margin="20px 0 6px 0"
+        $margin="20px auto 6px auto"
         $padding="5px"
         $border="1px solid black"
         $borderRadius="5px"
-        $width="100%"
+        $width="400px"
         $height="30px"
         onChange={onChangeHandler}
         value={inputText}

@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const StyledInput = styled.input`
   border: ${(props) => props.$border};
+  border-bottom: ${(props) => props.$borderBottom};
   border-radius: ${(props) => props.$borderRadius};
   margin: ${(props) => props.$margin};
   padding: ${(props) => props.$padding};
@@ -12,6 +13,7 @@ const StyledInput = styled.input`
   z-index: ${(props) => props.$zIndex};
   position: ${(props) => props.$position};
   cursor: ${(props) => (props.type === "file" ? "pointer" : null)};
+  display: ${(props) => props.$display};
 `;
 
 const Input = ({
@@ -25,6 +27,7 @@ const Input = ({
   $opacity,
   $zIndex,
   $position,
+  $display,
   onChange,
   value,
   ...restProps
@@ -41,6 +44,7 @@ const Input = ({
       $opacity={$opacity}
       $zIndex={$zIndex}
       $position={$position}
+      $display={$display}
       onChange={onChange}
       value={value}
       {...restProps}
