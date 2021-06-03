@@ -17,6 +17,7 @@ import { ReactComponent as FirstMedal } from "assets/FirstMedal.svg";
 import { ReactComponent as SecondMedal } from "assets/SecondMedal.svg";
 import { ReactComponent as ThirdMedal } from "assets/ThirdMedal.svg";
 import { ReactComponent as Heart } from "assets/Heart.svg";
+import { ReactComponent as Comment } from "assets/Comment.svg";
 
 const SVGIcon = ({ type, $width, $height, ...restProps }) => {
   let SVGIcon = null;
@@ -76,6 +77,9 @@ const SVGIcon = ({ type, $width, $height, ...restProps }) => {
       break;
     case "Heart":
       SVGIcon = Heart;
+      break;
+    case "Comment":
+      SVGIcon = Comment;
       break;
   }
   return <SVGIcon width={$width} height={$height} {...restProps} />;
