@@ -47,6 +47,7 @@ const CarWashCertificationEdit = ({ history }) => {
         image: url,
         postid: getPostId(),
         likeCount: 0,
+        comment: [],
       });
     };
   };
