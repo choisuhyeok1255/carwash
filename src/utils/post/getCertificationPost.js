@@ -14,6 +14,7 @@ const getCertificationPost = (collection, setImages) => {
           email: doc.data().email,
           likeCount: doc.data().likeCount,
           userProfileImg: doc.data().profileImg,
+          comment: doc.data().comment,
         });
       });
       setImages(temp);
