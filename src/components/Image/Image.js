@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const StyledImage = styled.img`
   width: ${(props) => props.$width};
+  max-width: ${(props) => props.$maxWidth};
   height: ${(props) => props.$height};
   margin: ${(props) => props.$margin};
   position: ${(props) => props.$position};

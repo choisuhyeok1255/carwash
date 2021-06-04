@@ -11,6 +11,9 @@ const StyledLink = styled(Link)`
   color: ${(props) => props.$color};
   font-size: ${(props) => props.$fontSize};
   display: ${(props) => props.$display};
+  justify-content: ${(props) => props.$justifyContent};
+  align-items: ${(props) => props.$alignItems};
+  text-align: ${(props) => props.textAlign};
 `;
 
 const LinkButton = ({

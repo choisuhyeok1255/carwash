@@ -8,12 +8,14 @@ const StyledContainer = styled.div`
   align-items: ${(props) => props.$alignItems};
   flex-wrap: ${(props) => props.$flexWrap};
   width: ${(props) => props.$width};
+  max-width: ${(props) => props.$maxWidth};
   height: ${(props) => props.$height};
   margin: ${(props) => props.$margin};
   border-radius: ${(props) => props.$borderRadius};
   border: ${(props) => props.$border};
   padding: ${(props) => props.$padding};
   background: ${(props) => props.$background};
+  position: ${(props) => props.$position};
 `;
 
 const Container = ({
@@ -28,6 +30,7 @@ const Container = ({
   $borderRadius,
   $padding,
   $background,
+  $maxWidth,
   children,
   ...restProps
 }) => {
@@ -44,6 +47,7 @@ const Container = ({
       $borderRadius={$borderRadius}
       $padding={$padding}
       $background={$background}
+      $maxWidth={$maxWidth}
       {...restProps}
     >
       {children}
