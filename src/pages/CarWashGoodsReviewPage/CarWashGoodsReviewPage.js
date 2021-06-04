@@ -10,7 +10,6 @@ import {
 } from "components";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { color } from "styles/color";
 import getGoodsReviewListItem from "utils/getItems/getGoodsReviewListItem";
 
 const CarWashGoodsReviewPage = ({ location }) => {
@@ -31,11 +30,10 @@ const CarWashGoodsReviewPage = ({ location }) => {
           },
         }}
         $display="block"
-        $fontSize="1.3rem"
-        $margin="15px 0 15px 10px"
-        $color={color.themeMain}
+        $fontSize="1.5rem"
+        $margin="15px 0 15px 0"
       >
-        용품 사용 후기 &gt;
+        뒤로 가기
       </LinkButton>
       <Container
         $justifyContent="space-between"
