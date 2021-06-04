@@ -109,12 +109,12 @@ const KaKaoMap = ({ $width, $height, ...restProps }) => {
         $padding="5px"
         $border="1px solid black"
         $borderRadius="5px"
-        $width="400px"
+        $width="92%"
         $height="30px"
         onChange={onChangeHandler}
         value={inputText}
       />
-      <StyledMap id="map" $width={$width} $height={$height} {...restProps} />
+      <StyledMap id="map" $width="100%" $height="300px" {...restProps} />
     </Form>
   );
 };

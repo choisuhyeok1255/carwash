@@ -24,11 +24,14 @@ const Header = ({ history }) => {
   };
 
   return (
-    <Container $background={color.themeMain} $height="50px">
+    <Container $width="100%" $height="50px">
       <Container
-        $width="420px"
+        $background={color.themeMain}
+        $maxWidth="420px"
+        $width="100%"
         $justifyContent="space-between"
-        $padding="0 30px"
+        $padding="0 20px"
+        $margin="0 auto"
       >
         <Heading $fontSize="2.5rem" $lineHeight="50px">
           <LinkHeader to="/" $color={color.textWhite}>

@@ -15,7 +15,8 @@ import { color } from "styles/color";
 const TabList = styled.ul`
   display: flex;
   position: fixed;
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
   bottom: 0px;
   margin: 0 auto;
   left: 0;
@@ -26,11 +27,13 @@ const TabList = styled.ul`
 const TabListItem = styled.li`
   width: 88px;
   height: 50px;
+  margin: 0 auto;
 `;
 
 const TabListItemLogin = styled.li`
   width: 70px;
   height: 50px;
+  margin: 0 auto;
 `;
 
 const TabListItemButton = styled.button`
