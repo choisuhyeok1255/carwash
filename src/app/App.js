@@ -12,13 +12,15 @@ import {
   CarWashUserGoodsReviewPage,
   CarWashGoodsReviewList,
   AttendanceCheckPage,
+  CarWashCertificationReviewPage,
 } from "pages";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import styled from "styled-components";
 import "./App.scss";
 
 const StyledMain = styled.main`
-  width: 414px;
+  width: 100%;
+  max-width: 420px;
   margin: 0 auto;
   padding: 0 30px;
 `;
@@ -39,6 +41,11 @@ function App() {
             exact
             path="/CarWashCertificationPage"
             component={CarWashCertificationPage}
+          />
+          <Route
+            exact
+            path="/CarWashCertificationReviewPage/:postid"
+            component={CarWashCertificationReviewPage}
           />
           <Route
             exact
