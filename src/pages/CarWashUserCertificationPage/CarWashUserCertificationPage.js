@@ -32,44 +32,49 @@ const CarWashUserCertificationPage = () => {
   return (
     <Container $flexFlow="column" $padding="22px 0 0 0">
       <Heading>{name}님의 세차 인증</Heading>
-      {userCertificationImages.map((image) => {
-        return (
-          <Container $flexFlow="column" $margin="20px 0 15px 0">
-            <Container
-              $margin="0 30px 5px 30px"
-              $justifyContent="space-between"
-            >
-              <Container $alignItems="center">
-                <Image
-                  src={image.userProfileImg}
-                  alt={`${image.name}님의 프로필사진`}
-                  $width="30px"
-                  $height="30px"
-                  $margin="0 10px 0 0"
-                  $skeletonWidth="30px"
-                />
-                <Span $fontSize="1.6rem">{image.name}</Span>
-              </Container>
-              {userProfile && email === image.email && (
-                <Button
-                  $backgroundColor="inherit"
-                  onClick={() => deletePost("certificationImage", image.postid)}
-                >
-                  <SVGIcon
-                    type="CloseButtonBlack"
-                    $width="10px"
-                    $height="10px"
+      {userCertificationImages
+        .slice(0)
+        .reverse()
+        .map((image) => {
+          return (
+            <Container $flexFlow="column" $margin="20px 0 15px 0">
+              <Container
+                $margin="0 30px 5px 30px"
+                $justifyContent="space-between"
+              >
+                <Container $alignItems="center">
+                  <Image
+                    src={image.userProfileImg}
+                    alt={`${image.name}님의 프로필사진`}
+                    $width="30px"
+                    $height="30px"
+                    $margin="0 10px 0 0"
+                    $skeletonWidth="30px"
                   />
-                </Button>
-              )}
+                  <Span $fontSize="1.6rem">{image.name}</Span>
+                </Container>
+                {userProfile && email === image.email && (
+                  <Button
+                    $backgroundColor="inherit"
+                    onClick={() =>
+                      deletePost("certificationImage", image.postid)
+                    }
+                  >
+                    <SVGIcon
+                      type="CloseButtonBlack"
+                      $width="10px"
+                      $height="10px"
+                    />
+                  </Button>
+                )}
+              </Container>
+              <Image src={image.image} alt="사진" $width="100%" />
+              <Span $margin="10px 0 10px 30px" $fontSize="1.2rem">
+                {image.uploadDate}
+              </Span>
             </Container>
-            <Image src={image.image} alt="사진" $width="100%" />
-            <Span $margin="10px 0 10px 30px" $fontSize="1.2rem">
-              {image.uploadDate}
-            </Span>
-          </Container>
-        );
-      })}
+          );
+        })}
     </Container>
   );
 };
