@@ -1,7 +1,8 @@
-import { Container, Image, Span, SVGIcon } from "components";
+import { Container, Image, Span } from "components";
 import { MainHeading } from "containers";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { db } from "utils/firebaseConfig";
 
 const CarWashProfile = () => {
@@ -47,13 +48,17 @@ const CarWashProfile = () => {
   }, [uid]);
 
   return (
-    <>
-      <Container $flexFlow="column" $alignItems="center">
+    <Container
+      $flexFlow="column"
+      $maxWidth="420px"
+      $margin="0 auto"
+      $padding="0 20px"
+    >
+      <Container $width="100%" $flexFlow="column" $alignItems="center">
         <Image
           src={defaultProfileImage}
           alt="프로필사진"
-          $width="200px"
-          $height="200px"
+          $maxWidth="200px"
           $skeletonWidth="200px"
         />
         <Span $fontSize="2rem">안녕하세요! {name}님</Span>
@@ -67,16 +72,21 @@ const CarWashProfile = () => {
         {name}님의 세차 인증
       </MainHeading>
       <Container $flexWrap="wrap" $justifyContent="space-between">
-        {certificationImages.map((image) => {
-          return (
-            <Image
-              src={image.image}
-              $width="175px"
-              $skeletonWidth="175px"
-              $margin="0 0 5px 0"
-            />
-          );
-        })}
+        <Link to="/CarWashUserCertificationPage">
+          {certificationImages
+            .slice(0)
+            .reverse()
+            .map((image) => {
+              return (
+                <Image
+                  src={image.image}
+                  $width="48%"
+                  $skeletonWidth="48%"
+                  $margin="0 0 5px 0"
+                />
+              );
+            })}
+        </Link>
       </Container>
       <MainHeading
         toPage="/CarWashUserGoodsReviewPage"
@@ -91,18 +101,23 @@ const CarWashProfile = () => {
         $justifyContent="space-between"
         $margin="0 0 80px 0"
       >
-        {goodsReviews.map((image) => {
-          return (
-            <Image
-              src={image.image}
-              $width="175px"
-              $skeletonWidth="175px"
-              $margin="0 0 5px 0"
-            />
-          );
-        })}
+        <Link to="/CarWashUserGoodsReviewPage">
+          {goodsReviews
+            .slice(0)
+            .reverse()
+            .map((image) => {
+              return (
+                <Image
+                  src={image.image}
+                  $width="48%"
+                  $skeletonWidth="48%"
+                  $margin="0 0 5px 0"
+                />
+              );
+            })}
+        </Link>
       </Container>
-    </>
+    </Container>
   );
 };
 

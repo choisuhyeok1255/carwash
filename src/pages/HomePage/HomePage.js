@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const PositionDiv = styled.div`
   position: relative;
-  width: 420px;
+  width: 100%;
 `;
 
 const HomePage = ({ location }) => {

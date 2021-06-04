@@ -20,7 +20,7 @@ const AttendanceCheckPage = () => {
   }, []);
 
   return (
-    <>
+    <Container $flexFlow="column" $maxWidth="420px" $margin="0 auto">
       <Heading $margin="22px 0 0 20px">출석 체크</Heading>
       <AttendanceList>
         {attendanceList.map((list, index) => {
@@ -43,7 +43,7 @@ const AttendanceCheckPage = () => {
           );
         })}
       </AttendanceList>
-    </>
+    </Container>
   );
 };
 

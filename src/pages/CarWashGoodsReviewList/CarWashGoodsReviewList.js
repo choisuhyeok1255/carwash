@@ -17,7 +17,7 @@ const CarWashGoodsReviewList = () => {
   }, []);
 
   return (
-    <>
+    <Container $maxWidth="420px" $flexFlow="column" $margin="0 auto">
       <SubHeading to="/CarWashGoodsReviewEdit" $margin="22px 20px 22px 20px">
         용품 후기 리스트
       </SubHeading>
@@ -35,36 +35,39 @@ const CarWashGoodsReviewList = () => {
             <SkeletonUI $width="100%" $height="30px" $margin="0 0 20px 0" />
           </>
         ) : (
-          goodsReviewList.map((goodsReview, i) => {
-            return (
-              <GoodsReviewList key={i}>
-                <Container
-                  $height="40px"
-                  $justifyContent="space-between"
-                  $alignItems="center"
-                  $margin="0 30px"
-                >
-                  <Link
-                    to={{
-                      pathname: `/CarWashGoodsReviewPage/${goodsReview.postid}`,
-                      state: {
-                        postid: goodsReview.postid,
-                      },
-                    }}
+          goodsReviewList
+            .slice(0)
+            .reverse()
+            .map((goodsReview, i) => {
+              return (
+                <GoodsReviewList key={i}>
+                  <Container
+                    $height="40px"
+                    $justifyContent="space-between"
+                    $alignItems="center"
+                    $margin="0 20px"
                   >
-                    <Span>{goodsReview.subject}</Span>
-                  </Link>
-                  <Container $width="110px" $justifyContent="space-between">
-                    <Span $fontSize="1.2rem">{goodsReview.name}</Span>
-                    <Span $fontSize="1.2rem">{goodsReview.uploadDate}</Span>
+                    <Link
+                      to={{
+                        pathname: `/CarWashGoodsReviewPage/${goodsReview.postid}`,
+                        state: {
+                          postid: goodsReview.postid,
+                        },
+                      }}
+                    >
+                      <Span>{goodsReview.subject}</Span>
+                    </Link>
+                    <Container $width="110px" $justifyContent="space-between">
+                      <Span $fontSize="1.2rem">{goodsReview.name}</Span>
+                      <Span $fontSize="1.2rem">{goodsReview.uploadDate}</Span>
+                    </Container>
                   </Container>
-                </Container>
-              </GoodsReviewList>
-            );
-          })
+                </GoodsReviewList>
+              );
+            })
         )}
       </ol>
-    </>
+    </Container>
   );
 };
 
