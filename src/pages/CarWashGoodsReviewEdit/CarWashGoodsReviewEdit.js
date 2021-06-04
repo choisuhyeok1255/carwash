@@ -1,4 +1,11 @@
-import { Button, Container, Input, InputImage, TextArea } from "components";
+import {
+  Container,
+  Input,
+  InputImage,
+  TextArea,
+  LinkButton,
+  Span,
+} from "components";
 import { Head } from "containers";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
@@ -34,7 +41,7 @@ const CarWashGoodsReviewEdit = ({ history }) => {
           .getDownloadURL()
           .then((url) => {
             uploadGoodsReview(url);
-            history.push("/CarWashGoodsReviewPage");
+            history.push("/");
           });
       }
     );
@@ -100,16 +107,26 @@ const CarWashGoodsReviewEdit = ({ history }) => {
           onChange={handlerMainTextOnChange}
           value={mainText}
         />
-        <Button
+        <LinkButton
+          to={{
+            pathname: "/",
+            state: {
+              activeTab: 1,
+            },
+          }}
           $width="120px"
           $height="30px"
+          $fontSize="1.5rem"
           $backgroundColor={color.themeBackgroundMain}
           $borderRadius="5px"
           $margin="20px 0 0 0"
+          $display="flex"
+          $justifyContent="center"
+          $alignItems="center"
           onClick={handlerGoodsImageUpload}
         >
-          완료
-        </Button>
+          <Span>완료</Span>
+        </LinkButton>
       </Container>
     </>
   );
