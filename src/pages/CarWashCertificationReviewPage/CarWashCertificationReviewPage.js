@@ -49,11 +49,11 @@ const CarWashCertificationReviewPage = ({ location }) => {
   const [commentValue, setCommentValue] = useState("");
   const [comments, setComments] = useState([]);
 
-  const commentInput = (e) => {
+  const onCommentInputHandler = (e) => {
     setCommentValue(e.target.value);
   };
 
-  const submitHandler = (e) => {
+  const onsubmitHandler = (e) => {
     e.preventDefault();
     if (commentValue.length > 0) {
       const loginUserName = loginUser.auth.currentUser.name;
@@ -117,10 +117,10 @@ const CarWashCertificationReviewPage = ({ location }) => {
       </CommentList>
       <>
         <DivisionLine $margin="0 0 10px 0" />
-        <Form onSubmit={submitHandler}>
+        <Form onSubmit={onsubmitHandler}>
           {loginUser.auth.currentUser ? (
             <CommentInput
-              onChange={commentInput}
+              onChange={onCommentInputHandler}
               value={commentValue}
               placeholder="댓글을 입력하세요."
             />

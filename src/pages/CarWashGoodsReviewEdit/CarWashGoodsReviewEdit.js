@@ -21,7 +21,7 @@ const CarWashGoodsReviewEdit = ({ history }) => {
   const [mainText, setMainText] = useState("");
   const state = useSelector((state) => state.auth);
 
-  const handlerGoodsImageUpload = () => {
+  const onGoodsImageUploadHandler = () => {
     const uploadUserEmail = state.currentUser.email;
 
     const uploadImage = storage
@@ -60,11 +60,11 @@ const CarWashGoodsReviewEdit = ({ history }) => {
     };
   };
 
-  const handlerMainTextOnChange = (e) => {
+  const onMainTextOnChangeHandler = (e) => {
     setMainText(e.target.value);
   };
 
-  const handlerSubjectOnChange = (e) => {
+  const onSubjectOnChangeHandler = (e) => {
     setSubject(e.target.value);
   };
 
@@ -93,7 +93,7 @@ const CarWashGoodsReviewEdit = ({ history }) => {
           $padding="0 0 0 10px"
           $border="1px solid black"
           $borderRadius="5px"
-          onChange={handlerSubjectOnChange}
+          onChange={onSubjectOnChangeHandler}
           value={subject}
         />
         <TextArea
@@ -104,7 +104,7 @@ const CarWashGoodsReviewEdit = ({ history }) => {
           $padding="10px 0 0 10px"
           $border="1px solid black"
           $borderRadius="5px"
-          onChange={handlerMainTextOnChange}
+          onChange={onMainTextOnChangeHandler}
           value={mainText}
         />
         <LinkButton
@@ -123,7 +123,7 @@ const CarWashGoodsReviewEdit = ({ history }) => {
           $display="flex"
           $justifyContent="center"
           $alignItems="center"
-          onClick={handlerGoodsImageUpload}
+          onClick={onGoodsImageUploadHandler}
         >
           <Span>완료</Span>
         </LinkButton>

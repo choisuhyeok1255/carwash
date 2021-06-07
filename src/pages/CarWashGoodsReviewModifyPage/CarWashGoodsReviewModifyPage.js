@@ -11,15 +11,15 @@ const CarWashGoodsReviewModifyPage = ({ location, history }) => {
   const [subject, setSubject] = useState(reviewSubject);
   const [mainText, setMainText] = useState(reviewMainText);
 
-  const handlerSubjectOnChange = (e) => {
+  const onSubjectOnChangeHandler = (e) => {
     setSubject(e.target.value);
   };
 
-  const handlerMainTextOnChange = (e) => {
+  const onMainTextOnChangeHandler = (e) => {
     setMainText(e.target.value);
   };
 
-  const handlerGoodsModifyUpload = (postid) => {
+  const onGoodsModifyUploadHandler = (postid) => {
     updatePost("goodsReview", postid, subject, mainText);
     history.goBack(1);
   };
@@ -49,7 +49,7 @@ const CarWashGoodsReviewModifyPage = ({ location, history }) => {
           $padding="0 0 0 10px"
           $border="1px solid black"
           $borderRadius="5px"
-          onChange={handlerSubjectOnChange}
+          onChange={onSubjectOnChangeHandler}
           value={subject}
         />
         <TextArea
@@ -60,7 +60,7 @@ const CarWashGoodsReviewModifyPage = ({ location, history }) => {
           $padding="10px 0 0 10px"
           $border="1px solid black"
           $borderRadius="5px"
-          onChange={handlerMainTextOnChange}
+          onChange={onMainTextOnChangeHandler}
           value={mainText}
         />
         <Button
@@ -70,7 +70,7 @@ const CarWashGoodsReviewModifyPage = ({ location, history }) => {
           $borderRadius="5px"
           $margin="20px 0 0 0"
           onClick={() => {
-            handlerGoodsModifyUpload(postid);
+            onGoodsModifyUploadHandler(postid);
           }}
         >
           완료

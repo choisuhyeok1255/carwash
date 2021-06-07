@@ -12,7 +12,7 @@ const CarWashCertificationEdit = ({ history }) => {
   const [imageURL, setImageURL] = useState(null);
   const state = useSelector((state) => state.auth);
 
-  const handlerCarWashImageUpload = () => {
+  const onCarWashImageUploadHandler = () => {
     const uploadUserEmail = state.currentUser.email;
 
     const uploadImage = storage
@@ -75,7 +75,7 @@ const CarWashCertificationEdit = ({ history }) => {
           $backgroundColor={color.themeBackgroundMain}
           $borderRadius="5px"
           $margin="20px 0 0 0"
-          onClick={handlerCarWashImageUpload}
+          onClick={onCarWashImageUploadHandler}
         >
           전송
         </Button>
